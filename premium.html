@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonari — Instalar App & Bem‑vindo</title>
-  <meta name="description" content="Instala o Sonari como app (PWA) e começa a ouvir música para foco, relax e sono.">
+  <title>Premium — Sonari (€5/mês)</title>
+  <meta name="description" content="Desbloqueia todos os modos, favoritos, presets e packs offline por €5/mês.">
 
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -29,23 +29,26 @@
     </div>
   </header>
 
-  <main class="hero">
+  <main class="section">
     <div class="container">
-      <p class="kicker">Áudio inteligente • Feito na Europa</p>
-      <h1>Instala o <span class="grad">Sonari</span> no teu telemóvel</h1>
-      <p class="lead">Enquanto a app chega às lojas, instala a versão PWA e aproveita <b>3 músicas Free</b> de relaxamento. Desbloqueia tudo no <b>Premium (€5/mês)</b>.</p>
-      <div class="cta">
-        <a class="btn" id="installBtn" href="#">Instalar App</a>
-        <a class="btn ghost" href="listen.html">Ouvir agora</a>
-        <a class="btn ghost" href="premium.html">Ver Premium</a>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <h3 style="margin:0 0 6px">Como instalar (PWA)</h3>
-        <ol class="steps" style="margin:0">
-          <li>Abre no navegador do telemóvel.</li>
-          <li>Menu/Partilhar → <b>Adicionar ao ecrã inicial</b>.</li>
-          <li>Abre o ícone Sonari — funciona offline e em background.</li>
-        </ol>
+      <h1>Premium — €5/mês</h1>
+      <div class="grid" style="grid-template-columns:1.1fr .9fr">
+        <div class="card">
+          <h3 style="margin-top:0">O que recebes</h3>
+          <ul class="steps">
+            <li>Biblioteca completa (Foco, Leitura, Relax+, Sono)</li>
+            <li>Favoritos e presets ilimitados</li>
+            <li>Packs offline e melhor qualidade</li>
+            <li>Sem limites, sem anúncios</li>
+          </ul>
+        </div>
+        <div class="card" style="text-align:center">
+          <h3 style="margin:0 0 8px">Experimenta agora</h3>
+          <p class="muted" style="margin:0 0 10px">Preço: <b>€5/mês</b>. Cancela quando quiseres.</p>
+          <button id="goPremium" class="btn" style="width:100%">Ativar Premium (demo)</button>
+          <button id="revokePremium" class="btn ghost" style="width:100%;margin-top:8px">Desativar Premium</button>
+          <small class="muted">*Demo local — integração real com App Store/Play em breve.</small>
+        </div>
       </div>
     </div>
   </main>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ouvir — Sonari</title>
+  <meta name="description" content="Ouvir música de relaxamento, foco e sono no navegador.">
+
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a0a" />
+
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><img src="logo.svg" class="logo" width="20" height="20" alt=""> <span>Sonari</span></a>
+      <nav class="nav-links">
+        <a href="listen.html">Ouvir</a>
+        <a href="premium.html">Premium</a>
+        <a href="sleep.html">Sono</a>
+        <a href="focus.html">Foco</a>
+        <a href="about.html">Sobre</a>
+        <a href="support.html">Ajuda</a>
+        <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Biblioteca</h1>
+      <p class="muted">Free inclui 3 faixas de Relax. Modos extra estão bloqueados (Premium).</p>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+        <!-- FREE -->
+        <article class="card tile" data-id="relax1" data-preset='{"name":"Relax 1","mins":20,"rain":25,"pink":10,"pad":60}'><h3>Relax 1</h3><p class="muted">Free</p></article>
+        <article class="card tile" data-id="relax2" data-preset='{"name":"Relax 2","mins":20,"rain":35,"pink":12,"pad":55}'><h3>Relax 2</h3><p class="muted">Free</p></article>
+        <article class="card tile" data-id="relax3" data-preset='{"name":"Relax 3","mins":25,"rain":30,"pink":15,"pad":62}'><h3>Relax 3</h3><p class="muted">Free</p></article>
+        <!-- PREMIUM -->
+        <article class="card tile locked" data-premium="1" data-id="focus" data-preset='{"name":"Foco Profundo","mins":25,"rain":60,"pink":35,"pad":50}'><h3>Foco Profundo 🔒</h3><p class="muted">Premium</p></article>
+        <article class="card tile locked" data-premium="1" data-id="reading" data-preset='{"name":"Leitura","mins":45,"rain":45,"pink":25,"pad":35}'><h3>Leitura 🔒</h3><p class="muted">Premium</p></article>
+        <article class="card tile locked" data-premium="1" data-id="sleep" data-preset='{"name":"Sono","mins":60,"rain":55,"pink":15,"pad":70}'><h3>Sono 🔒</h3><p class="muted">Premium</p></article>
+      </div>
+
+      <section class="section" id="player">
+        <div class="grid" style="grid-template-columns:1.05fr .95fr">
+          <div class="card">
+            <h3 style="margin:0">Sessão</h3>
+            <p id="modeMeta" class="kicker" style="opacity:.8">Modo: <b>Relax 1</b> • <span id="timer">20:00</span></p>
+            <div class="controls" style="margin:10px 0">
+              <button id="playBtn" class="btn">▶️ Reproduzir</button>
+              <button id="stopBtn" class="btn ghost">⏹️ Parar</button>
+              <div class="pill"><label for="master">Volume</label> <input id="master" type="range" min="0" max="100" value="80" /></div>
+              <div class="pill"><b>Timer</b>
+                <select id="timerSel">
+                  <option value="15">15m</option>
+                  <option value="20" selected>20m</option>
+                  <option value="25">25m</option>
+                  <option value="45">45m</option>
+                  <option value="60">60m</option>
+                </select>
+              </div>
+            </div>
+            <div class="card" style="margin-top:8px">
+              <h4 style="margin:0 0 8px">Mixer</h4>
+              <div class="row"><label for="rain">Chuva</label><input id="rain" type="range" min="0" max="100" value="25"></div>
+              <div class="row"><label for="pink">Ruído Rosa</label><input id="pink" type="range" min="0" max="100" value="10"></div>
+              <div class="row"><label for="pad">Pad</label><input id="pad" type="range" min="0" max="100" value="60"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin:0">Presets</h3>
+            <div class="controls" style="margin:8px 0">
+              <button id="savePreset" class="btn ghost">💾 Guardar</button>
+              <button id="loadPreset" class="btn ghost">📥 Carregar</button>
+              <button id="clearPreset" class="btn ghost">🗑️ Apagar</button>
+            </div>
+            <p class="muted">Guardar presets é funcionalidade <b>Premium</b>.</p>
+            <p class="muted">Dica: ativa o Premium para desbloquear biblioteca completa.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot-grid">
+      <div class="brandline"><img src="logo.svg" width="16" height="16" class="logo" alt=""><strong>Sonari</strong><p>© 2025 Sonari</p></div>
+      <nav class="foot-links">
+        <a href="privacy.html">Privacidade</a>
+        <a href="terms.html">Termos</a>
+        <a href="press.html">Press</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
