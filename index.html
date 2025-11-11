@@ -2,37 +2,97 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sonari - Música para foco e relaxamento</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 0; padding: 0;
-      background: linear-gradient(180deg, #0a0a0a, #181818);
-      color: white; text-align: center;
-    }
-    header { padding: 100px 20px; }
-    h1 { font-size: 48px; margin-bottom: 16px; }
-    p { opacity: 0.8; font-size: 18px; max-width: 600px; margin: 0 auto 24px; }
-    a.btn {
-      background: #1db954; color: white;
-      padding: 12px 24px; border-radius: 8px;
-      text-decoration: none; font-weight: 600;
-    }
-    footer { margin-top: 80px; font-size: 14px; opacity: 0.6; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonari — Música para foco, sono e relaxamento</title>
+  <meta name="description" content="Música inteligente para foco, sono e relaxamento. Sessões personalizadas e sons gerados para estudar, trabalhar e dormir melhor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231db954'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='54' font-family='Inter' fill='white'%3ES%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Sonari — Música inteligente para foco e relaxamento">
+  <meta property="og:description" content="Trilhas e sons para entrar em fluxo e dormir melhor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
 </head>
 <body>
-  <header>
-    <h1>Sonari</h1>
-    <p>Música inteligente para foco, sono e relaxamento.</p>
-    <a class="btn" href="#">Brevemente na App Store e Google Play</a>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#"><span class="logo-dot"></span> Sonari</a>
+      <nav class="nav-links">
+        <a href="#features">Funcionalidades</a>
+        <a href="#how">Como funciona</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn sm" href="#download">Download</a>
+      </nav>
+    </div>
   </header>
-  <footer>
-    <a href="privacy.html">Política de Privacidade</a> · 
-    <a href="terms.html">Termos de Uso</a>
-    <p>© 2025 Sonari</p>
-  </footer>
-</body>
-</html>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Entra no <span class="grad">estado de fluxo</span> com o Sonari</h1>
+        <p>Música inteligente e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Sem distrações, sem direitos autorais.</p>
+        <div class="cta">
+          <a class="btn" id="download" href="#">Brevemente: App Store & Google Play</a>
+          <a class="link" href="privacy.html">Política de Privacidade</a>
+          <span class="dot">·</span>
+          <a class="link" href="terms.html">Termos</a>
+        </div>
+        <div class="badges">
+          <div class="badge"> App Store</div>
+          <div class="badge">▶ Google Play</div>
+        </div>
+      </div>
+
+      <!-- PHONE MOCKUP -->
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="app-header">
+            <div class="logo-mini"></div>
+            <span>Sonari</span>
+          </div>
+          <div class="session-card">
+            <h3>Foco Profundo</h3>
+            <p>Trilha adaptativa • 25:00</p>
+            <div class="meters">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <button class="play">Começar sessão</button>
+          </div>
+          <div class="mixer">
+            <div class="row"><label>Chuva</label><input type="range" min="0" max="100" value="60"></div>
+            <div class="row"><label>Ruído Rosa</label><input type="range" min="0" max="100" value="40"></div>
+            <div class="row"><label>Pad</label><input type="range" min="0" max="100" value="50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Porque o Sonari funciona</h2>
+      <div class="grid features">
+        <div class="card">
+          <h3>Som gerado</h3>
+          <p>Camadas originais e variações subtis para evitar fadiga auditiva.</p>
+        </div>
+        <div class="card">
+          <h3>Modos prontos</h3>
+          <p>Foco, Leitura, Relax e Sono — escolhe e começa.</p>
+        </div>
+        <div class="card">
+          <h3>Offline</h3>
+          <p>Packs descarregáveis para usares sem internet.</p>
+        </div>
+        <div class="card">
+          <h3>Sem distrações</h3>
+          <p>Interface
 
