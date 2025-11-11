@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt" data-theme="system">
+<html lang="en" data-theme="system">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonari — Música inteligente para foco, sono e relaxamento</title>
-  <meta name="description" content="Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar.">
+  <title>Sonari — Intelligent music for focus, sleep and relaxation</title>
+  <meta name="description" content="Generative music and ambient sounds to help you focus, relax, and sleep. Minimal design, privacy-first.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Sonari — Música inteligente para foco, sono e relaxamento">
-  <meta property="og:description" content="Trilhas geradas e sons ambientes para entrar no estado de fluxo.">
+  <meta property="og:title" content="Sonari — Intelligent music for focus, sleep and relaxation">
+  <meta property="og:description" content="Generative tracks and ambient soundscapes to get you into flow.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="logo.svg">
   <meta name="twitter:card" content="summary_large_image">
   <script>
-    // tema persistente (dark/light/system)
     (function () {
       const saved = localStorage.getItem('sonari-theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -23,50 +22,50 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+  <a class="skip" href="#content">Skip to content</a>
 
   <!-- NAV -->
-  <header class="nav" role="banner" aria-label="Navegação principal">
+  <header class="nav" role="banner" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a class="brand" href="/" aria-label="Página inicial Sonari">
+      <a class="brand" href="/" aria-label="Sonari home">
         <img src="logo.svg" alt="" width="20" height="20" class="logo" />
         <span>Sonari</span>
       </a>
-      <nav class="nav-links" aria-label="Secções do site">
-        <a href="#como">Como funciona</a>
-        <a href="#features">Funcionalidades</a>
+      <nav class="nav-links" aria-label="Site sections">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
         <a href="#faq">FAQ</a>
         <a class="btn sm" href="#download">Download</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <main id="conteudo">
+  <main id="content">
     <section class="hero">
       <div class="bg-blur blur-1" aria-hidden="true"></div>
       <div class="bg-blur blur-2" aria-hidden="true"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Áudio inteligente • Feito na Europa</p>
-          <h1>Entra no <span class="grad">estado de fluxo</span> com o Sonari</h1>
-          <p class="lead">Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Design minimalista, sem distrações.</p>
+          <p class="kicker">Intelligent audio • Made in Europe</p>
+          <h1>Enter the <span class="grad">flow state</span> with Sonari</h1>
+          <p class="lead">Generative tracks and ambient soundscapes for <strong>focus</strong>, <strong>relaxation</strong> and <strong>sleep</strong>. Minimal interface, zero distractions.</p>
 
           <div class="cta">
-            <a class="btn" id="download" href="#">Brevemente: App Store & Google Play</a>
-            <a class="btn ghost" href="privacy.html">Privacidade</a>
-            <a class="btn ghost" href="terms.html">Termos</a>
+            <a class="btn" id="download" href="#">Coming soon: App Store & Google Play</a>
+            <a class="btn ghost" href="privacy.html">Privacy</a>
+            <a class="btn ghost" href="terms.html">Terms</a>
           </div>
 
-          <!-- Captura de email (gratuita via formsubmit.co) -->
+          <!-- Email capture (swap to your email) -->
           <form class="waitlist" action="https://formsubmit.co/your@email.com" method="POST">
-            <input type="hidden" name="_subject" value="Sonari — Nova inscrição na lista de espera">
-            <input type="email" name="email" placeholder="O teu email" aria-label="Email" required>
-            <button type="submit" class="btn sm">Avisar no lançamento</button>
+            <input type="hidden" name="_subject" value="Sonari — New waitlist signup">
+            <input type="email" name="email" placeholder="Your email" aria-label="Email" required>
+            <button type="submit" class="btn sm">Notify me on launch</button>
           </form>
-          <small class="muted">Sem spam. Podes cancelar quando quiseres.</small>
+          <small class="muted">No spam. Unsubscribe anytime.</small>
         </div>
 
         <!-- PHONE MOCKUP -->
@@ -75,14 +74,14 @@
           <div class="phone-screen">
             <div class="app-header"><span class="logo-mini"></span><b>Sonari</b></div>
             <div class="session-card">
-              <h3>Foco Profundo</h3>
-              <p class="meta">Trilha adaptativa • 25:00</p>
+              <h3>Deep Focus</h3>
+              <p class="meta">Adaptive track • 25:00</p>
               <div class="meters"><span></span><span></span><span></span><span></span></div>
-              <button class="play">Começar sessão</button>
+              <button class="play">Start session</button>
             </div>
             <div class="mixer">
-              <div class="row"><label>Chuva</label><input type="range" min="0" max="100" value="60"></div>
-              <div class="row"><label>Ruído Rosa</label><input type="range" min="0" max="100" value="40"></div>
+              <div class="row"><label>Rain</label><input type="range" min="0" max="100" value="60"></div>
+              <div class="row"><label>Pink Noise</label><input type="range" min="0" max="100" value="40"></div>
               <div class="row"><label>Pad</label><input type="range" min="0" max="100" value="50"></div>
             </div>
           </div>
@@ -93,65 +92,78 @@
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="track">
-        <span class="pill">Foco</span><span class="pill">Leitura</span><span class="pill">Relax</span><span class="pill">Sono</span>
-        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Respiração</span>
-        <span class="pill">Foco</span><span class="pill">Leitura</span><span class="pill">Relax</span><span class="pill">Sono</span>
-        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Respiração</span>
+        <span class="pill">Focus</span><span class="pill">Reading</span><span class="pill">Relax</span><span class="pill">Sleep</span>
+        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Breathing</span>
+        <span class="pill">Focus</span><span class="pill">Reading</span><span class="pill">Relax</span><span class="pill">Sleep</span>
+        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Breathing</span>
       </div>
     </div>
 
     <!-- FEATURES -->
     <section id="features" class="section">
       <div class="container">
-        <h2>Porque o Sonari funciona</h2>
-        <p class="muted">Som gerado + variações subtis = menos habituação e mais foco.</p>
+        <h2>Why Sonari works</h2>
+        <p class="muted">Generative layers + subtle variation = less habituation, more flow.</p>
         <div class="grid features">
           <article class="card">
-            <h3>Som gerado</h3>
-            <p>Camadas originais com micro-variações ao longo da sessão.</p>
+            <h3>Generative sound</h3>
+            <p>Original layers with micro-variations over time.</p>
           </article>
           <article class="card">
-            <h3>Modos prontos</h3>
-            <p>Foco, Leitura, Relax, Sono — escolhe e começa.</p>
+            <h3>Ready-made modes</h3>
+            <p>Focus, Reading, Relax, Sleep — pick and start.</p>
           </article>
           <article class="card">
-            <h3>Offline</h3>
-            <p>Packs descarregáveis para usar sem internet.</p>
+            <h3>Offline packs</h3>
+            <p>Downloadable content for zero-network sessions.</p>
           </article>
           <article class="card">
-            <h3>Métricas</h3>
-            <p>Tempo focado, streaks e lembretes gentis.</p>
+            <h3>Session stats</h3>
+            <p>Focused minutes, streaks, gentle reminders.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- COMO -->
-    <section id="como" class="section alt">
+    <!-- HOW -->
+    <section id="how" class="section alt">
       <div class="container two-col">
         <div>
-          <h2>Como funciona</h2>
+          <h2>How it works</h2>
           <ol class="steps">
-            <li>Escolhe um <strong>modo</strong>.</li>
-            <li>Ajusta o <strong>mixer</strong> (chuva, ruído, pads).</li>
-            <li>Carrega em <strong>Começar sessão</strong> e entra no fluxo.</li>
+            <li>Choose a <strong>mode</strong>.</li>
+            <li>Adjust the <strong>mixer</strong> (rain, noise, pads).</li>
+            <li>Tap <strong>Start session</strong> and drop into flow.</li>
           </ol>
         </div>
         <div class="card big">
-          <h3>Privacidade em primeiro lugar</h3>
-          <p class="muted">Guardamos o mínimo necessário. Consulta a <a href="privacy.html">Política de Privacidade</a>.</p>
+          <h3>Privacy first</h3>
+          <p class="muted">We collect the minimum necessary. Read our <a href="privacy.html">Privacy Policy</a>.</p>
         </div>
       </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
-    <section class="section">
+    <!-- FAQ -->
+    <section id="faq" class="section">
       <div class="container">
-        <h2>Resultados reais</h2>
-        <div class="grid testimonials">
-          <blockquote class="card">“Consigo estudar 50 minutos seguidos. Variações de som top.”<cite>— Ana, Porto</cite></blockquote>
-          <blockquote class="card">“Usei para dormir — acordei descansado.”<cite>— Miguel, Lisboa</cite></blockquote>
-          <blockquote class="card">“Interface simples, sem distrações.”<cite>— Sofia, Braga</cite></blockquote>
+        <h2>FAQ</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Is the music copyrighted?</h3>
+            <p>No — tracks are original and/or generated, designed for focus, relaxation and sleep.</p>
+          </article>
+          <article class="card">
+            <h3>Will it work offline?</h3>
+            <p>Yes. You can download packs and use them without internet.</p>
+          </article>
+          <article class="card">
+            <h3>How is Sonari different from playlists?</h3>
+            <p>Subtle variations reduce habituation, helping you stay in flow longer than static playlists.</p>
+          </article>
+          <article class="card">
+            <h3>What about privacy?</h3>
+            <p>We keep data to a minimum. You can request deletion anytime via <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -159,8 +171,8 @@
     <!-- CTA -->
     <section class="section cta-band">
       <div class="container cta-inner">
-        <h2>Pronto para focar melhor?</h2>
-        <a class="btn lg" href="#download">Receber aviso de lançamento</a>
+        <h2>Ready to focus better?</h2>
+        <a class="btn lg" href="#download">Notify me on launch</a>
       </div>
     </section>
   </main>
@@ -173,23 +185,22 @@
         <strong>Sonari</strong>
         <p>© 2025 Sonari</p>
       </div>
-      <nav class="foot-links" aria-label="Links legais">
-        <a href="privacy.html">Privacidade</a>
-        <a href="terms.html">Termos</a>
-        <a href="mailto:support@sonari.app">Suporte</a>
+      <nav class="foot-links" aria-label="Legal links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@sonari.app">Support</a>
       </nav>
     </div>
   </footer>
 
   <script>
-    // toggle de tema com persistência
     const btn = document.getElementById('themeToggle');
     btn?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'system';
       const next = current === 'dark' ? 'light' : current === 'light' ? 'system' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('sonari-theme', next);
-      btn.title = 'Tema: ' + next;
+      btn.title = 'Theme: ' + next;
     });
   </script>
 </body>
