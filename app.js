@@ -15,7 +15,7 @@
     e.preventDefault(); if(dp){ dp.prompt(); dp=null; } else alert('Usa “Adicionar ao ecrã inicial” no menu do navegador.');
   });
 
-  // Register SW (relative path)
+  // Register SW
   if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
 
   // Premium gate
@@ -27,7 +27,7 @@
   document.querySelector('#goPremium')?.addEventListener('click', ()=>{ setPremium(true); alert('Premium ativado (demo local).'); });
   document.querySelector('#revokePremium')?.addEventListener('click', ()=>{ setPremium(false); alert('Premium desativado.'); });
 
-  // Audio Player (only where elements exist)
+  // Audio Player
   if($('playBtn')){
     let ctx, masterGain, nodes={}, running=false, countdown=null, endAt=0, currentPreset={name:'Relax 1'};
     function init(){ if(ctx) return; ctx=new (window.AudioContext||window.webkitAudioContext)();
@@ -48,9 +48,10 @@
     function applyMixer(){ if(!ctx) return; nodes.rain.gain.gain.value=$('rain').value/100*0.9; nodes.pink.gain.gain.value=$('pink').value/100*0.6; nodes.pad.gain.gain.value=$('pad').value/100*0.7; masterGain.gain.value=$('master').value/100; const meta = `${$('timerSel').value}:00`; document.getElementById('modeMeta').innerHTML=`Modo: <b>${currentPreset.name}</b> • <span id="timer">${meta}</span>`; }
     function start(){ init(); applyMixer(); running=true; ctx.resume(); const mins=parseInt($('timerSel').value,10); endAt=Date.now()+mins*60*1000; tick(); $('playBtn').textContent='⏸️ Pausar'; }
     function pause(){ running=false; ctx.suspend(); $('playBtn').textContent='▶️ Retomar'; clearInterval(countdown); }
-    function stop(){ running=false; clearInterval(countdown); update(0); $('playBtn').textContent='▶️ Reproduzir'; ctx && ctx.suspend(); }
-    function tick(){ clearInterval(countdown); countdown=setInterval(()=>{ const left=Math.max(0,endAt-Date.now()); update(left); if(left<=0){ stop(); try{ new Notification('Sessão concluída ✅',{body:`${currentPreset.name} terminou.`}); }catch(e){} } },250); }
+    function stop(){ running=false; clearInterval(countdown); update(0); $('playBtn').textContent='▶️ Reproduzir'; ctx && ctx.suspend(); updateProgress(0); }
+    function tick(){ clearInterval(countdown); const total = parseInt($('timerSel').value,10)*60*1000; countdown=setInterval(()=>{ const left=Math.max(0,endAt-Date.now()); update(left); updateProgress((total-left)/total); if(left<=0){ stop(); try{ new Notification('Sessão concluída ✅',{body:`${currentPreset.name} terminou.`}); }catch(e){} } },250); }
     function update(ms){ const s=Math.round(ms/1000); const mm=String(Math.floor(s/60)).padStart(2,'0'); const ss=String(s%60).padStart(2,'0'); document.getElementById('timer').textContent=`${mm}:${ss}`; }
+    function updateProgress(ratio){ const el=document.getElementById('progressBar'); if(el) el.style.width = Math.max(0, Math.min(1, ratio))*100 + '%'; }
 
     document.getElementById('playBtn').addEventListener('click', ()=>{ if(!ctx || ctx.state!=='running' || !running){ start(); } else { pause(); } });
     document.getElementById('stopBtn').addEventListener('click', stop);

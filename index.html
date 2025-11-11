@@ -2,22 +2,28 @@
 <html lang="pt" data-theme="system">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonari — Instalar App & Bem‑vindo</title>
-  <meta name="description" content="Instala o Sonari como app (PWA) e começa a ouvir música para foco, relax e sono.">
+  <title>Sonari — Instalar App</title>
+  <meta name="description" content="Instala o Sonari (PWA) e começa a ouvir música gerada para foco, relax e sono.">
 
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav glass">
     <div class="container nav-inner">
-      <a class="brand" href="index.html"><img src="logo.svg" class="logo" width="20" height="20" alt=""> <span>Sonari</span></a>
-      <nav class="nav-links">
+      <a class="brand" href="index.html" aria-label="Sonari home">
+        <img src="logo.svg" class="logo" width="20" height="20" alt="">
+        <span>Sonari</span>
+      </a>
+      <nav class="nav-links" aria-label="Secções">
         <a href="listen.html">Ouvir</a>
         <a href="premium.html">Premium</a>
         <a href="sleep.html">Sono</a>
@@ -29,30 +35,38 @@
     </div>
   </header>
 
-  <main class="hero">
-    <div class="container">
-      <p class="kicker">Áudio inteligente • Feito na Europa</p>
-      <h1>Instala o <span class="grad">Sonari</span> no teu telemóvel</h1>
-      <p class="lead">Enquanto a app chega às lojas, instala a versão PWA e aproveita <b>3 músicas Free</b> de relaxamento. Desbloqueia tudo no <b>Premium (€5/mês)</b>.</p>
-      <div class="cta">
-        <a class="btn" id="installBtn" href="#">Instalar App</a>
-        <a class="btn ghost" href="listen.html">Ouvir agora</a>
-        <a class="btn ghost" href="premium.html">Ver Premium</a>
+  <main>
+    <section class="hero center">
+      <div class="bg-blur blob-a"></div>
+      <div class="bg-blur blob-b"></div>
+      <div class="container hero-inner">
+        <p class="kicker">Áudio inteligente • Feito na Europa</p>
+        <h1>Instala o <span class="grad">Sonari</span></h1>
+        <p class="lead">Enquanto a app chega às lojas, instala a versão <b>PWA</b> e experimenta <b>3 faixas Free</b> de relaxamento. Desbloqueia tudo com <b>Premium (€5/mês)</b>.</p>
+        <div class="cta">
+          <a class="btn lg" id="installBtn" href="#">Instalar App</a>
+          <a class="btn ghost" href="listen.html">Ouvir agora</a>
+          <a class="btn ghost" href="premium.html">Ver Premium</a>
+        </div>
+        <div class="card how-install">
+          <h3>Como instalar</h3>
+          <ol class="steps">
+            <li>Abrir no telemóvel.</li>
+            <li>Menu/Partilhar → <b>Adicionar ao ecrã inicial</b>.</li>
+            <li>Abrir o ícone Sonari (funciona offline/background).</li>
+          </ol>
+        </div>
       </div>
-      <div class="card" style="margin-top:14px">
-        <h3 style="margin:0 0 6px">Como instalar (PWA)</h3>
-        <ol class="steps" style="margin:0">
-          <li>Abre no navegador do telemóvel.</li>
-          <li>Menu/Partilhar → <b>Adicionar ao ecrã inicial</b>.</li>
-          <li>Abre o ícone Sonari — funciona offline e em background.</li>
-        </ol>
-      </div>
-    </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container foot-grid">
-      <div class="brandline"><img src="logo.svg" width="16" height="16" class="logo" alt=""><strong>Sonari</strong><p>© 2025 Sonari</p></div>
+      <div class="brandline">
+        <img src="logo.svg" width="16" height="16" class="logo" alt="">
+        <strong>Sonari</strong>
+        <p>© 2025 Sonari</p>
+      </div>
       <nav class="foot-links">
         <a href="privacy.html">Privacidade</a>
         <a href="terms.html">Termos</a>

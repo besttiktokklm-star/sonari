@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sonari-v1';
+const CACHE_NAME = 'sonari-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -22,7 +22,5 @@ self.addEventListener('activate', (e)=>{
   );
 });
 self.addEventListener('fetch', (e)=>{
-  e.respondWith(
-    caches.match(e.request).then(r=> r || fetch(e.request))
-  );
+  e.respondWith(caches.match(e.request).then(r=> r || fetch(e.request)));
 });

@@ -2,24 +2,30 @@
 <html lang="pt" data-theme="system">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Premium — Sonari (€5/mês)</title>
   <meta name="description" content="Desbloqueia todos os modos, favoritos, presets e packs offline por €5/mês.">
 
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav glass">
     <div class="container nav-inner">
-      <a class="brand" href="index.html"><img src="logo.svg" class="logo" width="20" height="20" alt=""> <span>Sonari</span></a>
-      <nav class="nav-links">
+      <a class="brand" href="index.html" aria-label="Sonari home">
+        <img src="logo.svg" class="logo" width="20" height="20" alt="">
+        <span>Sonari</span>
+      </a>
+      <nav class="nav-links" aria-label="Secções">
         <a href="listen.html">Ouvir</a>
-        <a href="premium.html">Premium</a>
+        <a href="premium.html" class="active" aria-current="page">Premium</a>
         <a href="sleep.html">Sono</a>
         <a href="focus.html">Foco</a>
         <a href="about.html">Sobre</a>
@@ -31,8 +37,8 @@
 
   <main class="section">
     <div class="container">
-      <h1>Premium — €5/mês</h1>
-      <div class="grid" style="grid-template-columns:1.1fr .9fr">
+      <div class="page-head"><h1>Premium — €5/mês</h1><p class="muted">Cancela quando quiseres.</p></div>
+      <div class="grid two">
         <div class="card">
           <h3 style="margin-top:0">O que recebes</h3>
           <ul class="steps">
@@ -42,10 +48,10 @@
             <li>Sem limites, sem anúncios</li>
           </ul>
         </div>
-        <div class="card" style="text-align:center">
+        <div class="card center">
           <h3 style="margin:0 0 8px">Experimenta agora</h3>
-          <p class="muted" style="margin:0 0 10px">Preço: <b>€5/mês</b>. Cancela quando quiseres.</p>
-          <button id="goPremium" class="btn" style="width:100%">Ativar Premium (demo)</button>
+          <p class="muted" style="margin:0 0 10px">Preço: <b>€5/mês</b>.</p>
+          <button id="goPremium" class="btn lg" style="width:100%">Ativar Premium (demo)</button>
           <button id="revokePremium" class="btn ghost" style="width:100%;margin-top:8px">Desativar Premium</button>
           <small class="muted">*Demo local — integração real com App Store/Play em breve.</small>
         </div>
@@ -55,7 +61,11 @@
 
   <footer class="footer">
     <div class="container foot-grid">
-      <div class="brandline"><img src="logo.svg" width="16" height="16" class="logo" alt=""><strong>Sonari</strong><p>© 2025 Sonari</p></div>
+      <div class="brandline">
+        <img src="logo.svg" width="16" height="16" class="logo" alt="">
+        <strong>Sonari</strong>
+        <p>© 2025 Sonari</p>
+      </div>
       <nav class="foot-links">
         <a href="privacy.html">Privacidade</a>
         <a href="terms.html">Termos</a>

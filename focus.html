@@ -2,26 +2,32 @@
 <html lang="pt" data-theme="system">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Foco — Sonari</title>
   <meta name="description" content="Entre em flow com trilhas geradas e mixer ajustável (chuva, ruído rosa, pads).">
 
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav glass">
     <div class="container nav-inner">
-      <a class="brand" href="index.html"><img src="logo.svg" class="logo" width="20" height="20" alt=""> <span>Sonari</span></a>
-      <nav class="nav-links">
+      <a class="brand" href="index.html" aria-label="Sonari home">
+        <img src="logo.svg" class="logo" width="20" height="20" alt="">
+        <span>Sonari</span>
+      </a>
+      <nav class="nav-links" aria-label="Secções">
         <a href="listen.html">Ouvir</a>
         <a href="premium.html">Premium</a>
         <a href="sleep.html">Sono</a>
-        <a href="focus.html">Foco</a>
+        <a href="focus.html" class="active" aria-current="page">Foco</a>
         <a href="about.html">Sobre</a>
         <a href="support.html">Ajuda</a>
         <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
@@ -31,15 +37,14 @@
 
   <main class="section">
     <div class="container">
-      <h1>Foco</h1>
-      <p class="lead">Modos prontos (Pomodoro, Leitura) e métricas leves. Para experimentar, abre o <a href="listen.html">player</a>.</p>
+      <div class="page-head"><h1>Foco</h1><p class="lead">Modos prontos (Pomodoro, Leitura) e métricas leves.</p></div>
       <div class="grid features">
         <article class="card"><h3>Flow sustentado</h3><p>Micro-variações evitam fadiga de playlist.</p></article>
         <article class="card"><h3>Pomodoro</h3><p>15/25/45/60 min + lembretes suaves.</p></article>
         <article class="card"><h3>Métricas</h3><p>Minutos focados e streaks semanais.</p></article>
         <article class="card"><h3>Sem distrações</h3><p>UI minimal para estudar/trabalhar.</p></article>
       </div>
-      <div class="cta" style="margin-top:14px">
+      <div class="cta top-gap">
         <a class="btn" href="premium.html">Desbloquear no Premium</a>
         <a class="btn ghost" href="listen.html">Ouvir agora</a>
       </div>
@@ -48,7 +53,11 @@
 
   <footer class="footer">
     <div class="container foot-grid">
-      <div class="brandline"><img src="logo.svg" width="16" height="16" class="logo" alt=""><strong>Sonari</strong><p>© 2025 Sonari</p></div>
+      <div class="brandline">
+        <img src="logo.svg" width="16" height="16" class="logo" alt="">
+        <strong>Sonari</strong>
+        <p>© 2025 Sonari</p>
+      </div>
       <nav class="foot-links">
         <a href="privacy.html">Privacidade</a>
         <a href="terms.html">Termos</a>
