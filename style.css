@@ -1,0 +1,41 @@
+:root{
+  --bg:#0a0a0a; --bg2:#121212; --card:#171717; --muted:#a4a4a4;
+  --text:#ffffff; --brand:#1db954; --brand2:#21e06d;
+  --max:1100px; --rad:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(33,224,109,.08), transparent),
+              radial-gradient(1000px 500px at 120% 0%, rgba(29,185,84,.08), transparent),
+              linear-gradient(180deg, var(--bg), var(--bg2));
+  color:var(--text);
+}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* NAV */
+.nav{position:sticky;top:0;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);z-index:20;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+.logo-dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-block}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{color:#fff;opacity:.85}
+.nav .btn.sm{padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0a0a;font-weight:700}
+
+/* HERO */
+.hero{position:relative;padding:84px 0 40px}
+.bg-blur{position:absolute;filter:blur(70px);opacity:.5;z-index:-1}
+.blur-1{width:360px;height:360px;background:var(--brand);left:-120px;top:-80px}
+.blur-2{width:420px;height:420px;background:#3ddc84;right:-120px;top:120px;opacity:.35}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero-copy h1{font-size:48px;line-height:1.05;margin:0 0 12px}
+.grad{background:linear-gradient(135deg,var(--brand),#b6ffd8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{color:var(--muted);font-size:18px;max-width:560px}
+.cta{margin:18px 0 8px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0a0a;padding:12px 18px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
+.btn.lg{padding:16px 24px;font-size:18px}
+.link{color:#cfcfcf}
+.dot{opacity:.4}
+.badges{display:flex;gap:
