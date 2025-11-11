@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt" data-theme="system">
 <head>
-  <link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="pt">
-<link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="en">
-<link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="x-default">
-  <meta property="og:title" content="Sonari — Música inteligente para foco, sono e relaxamento">
-<meta property="og:description" content="Trilhas geradas e sons ambientes para entrar no estado de fluxo.">
-<meta property="og:image" content="https://besttiktokklm-star.github.io/sonari/og-cover.png">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://besttiktokklm-star.github.io/sonari/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title data-i18n="meta.title">Sonari — Música inteligente para foco, sono e relaxamento</title>
   <meta name="description" data-i18n="meta.desc" content="Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar.">
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://besttiktokklm-star.github.io/sonari/">
+  <link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="pt">
+  <link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="en">
+  <link rel="alternate" href="https://besttiktokklm-star.github.io/sonari/" hreflang="x-default">
+  <meta property="og:title" content="Sonari — Música inteligente para foco, sono e relaxamento">
+  <meta property="og:description" content="Trilhas geradas e sons ambientes para entrar no estado de fluxo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://besttiktokklm-star.github.io/sonari/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Sonari">
-  <meta property="og:description" content="Generative audio for focus, relax and sleep.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="logo.svg">
-  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Analytics (troca o data-domain pelo teu domínio quando tiveres) -->
+  <script defer data-domain="besttiktokklm-star.github.io" src="https://plausible.io/js/script.js"></script>
+
+  <!-- Persist theme on load -->
   <script>
-    // Tema persistente
     (function () {
       const saved = localStorage.getItem('sonari-theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -65,21 +71,27 @@
           <p class="lead" data-i18n="hero.lead">Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Design minimalista, sem distrações.</p>
 
           <div class="cta">
-            <a class="btn" id="download" href="#" data-i18n="hero.cta_main">Brevemente: App Store & Google Play</a>
-            <a class="btn ghost" href="privacy.html" data-i18n="hero.privacy">Privacidade</a>
-            <a class="btn ghost" href="terms.html" data-i18n="hero.terms">Termos</a>
+            <a class="btn" id="download" href="#download" data-i18n="hero.cta_main">Brevemente: App Store & Google Play</a>
+            <a class="btn ghost legal-link-privacy" href="privacy.html" data-i18n="hero.privacy">Privacidade</a>
+            <a class="btn ghost legal-link-terms" href="terms.html" data-i18n="hero.terms">Termos</a>
           </div>
 
-          <!-- Waitlist -->
-          <form class="waitlist" action="https://formsubmit.co/TEU-EMAIL-AQUI" method="POST">
-  <input type="hidden" name="_subject" value="Sonari — Waitlist">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://besttiktokklm-star.github.io/sonari/obrigado.html">
-  <input type="text" name="_honey" style="display:none">
-  <input type="email" name="email" placeholder="O teu email" aria-label="Email" required>
-  <button type="submit" class="btn sm" data-i18n="form.submit">Avisar no lançamento</button>
-</form>
+          <!-- Waitlist (troca o email abaixo) -->
+          <form class="waitlist" action="https://formsubmit.co/youremail@example.com" method="POST">
+            <input type="hidden" name="_subject" value="Sonari — Waitlist">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://besttiktokklm-star.github.io/sonari/obrigado.html">
+            <input type="text" name="_honey" style="display:none">
+            <input type="email" name="email" placeholder="O teu email" aria-label="Email" data-i18n-placeholder="form.email_ph" required>
+            <button type="submit" class="btn sm" data-i18n="form.submit">Avisar no lançamento</button>
+          </form>
+          <small class="muted" data-i18n="form.note">Sem spam. Podes cancelar quando quiseres.</small>
 
+          <div class="badges" style="margin-top:14px">
+            <img src="appstore-badge.svg" alt="Download on the App Store" height="40" loading="lazy">
+            <img src="googleplay-badge.svg" alt="Get it on Google Play" height="40" loading="lazy">
+          </div>
+        </div>
 
         <!-- PHONE MOCKUP -->
         <div class="phone" aria-hidden="true">
@@ -146,33 +158,35 @@
         </div>
         <div class="card big">
           <h3 data-i18n="privacy.title">Privacidade em primeiro lugar</h3>
-          <p class="muted" data-i18n="privacy.text">Guardamos o mínimo necessário. Consulta a <a href="privacy.html">Política de Privacidade</a>.</p>
+          <p class="muted" data-i18n="privacy.text">Guardamos o mínimo necessário. Consulta a <a href="privacy.html" class="legal-link-privacy">Política de Privacidade</a>.</p>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (accordion) -->
     <section id="faq" class="section">
       <div class="container">
         <h2 data-i18n="faq.title">FAQ</h2>
-        <div class="grid">
-          <article class="card">
-            <h3 data-i18n="faq.q1.t">A música tem direitos?</h3>
-            <p data-i18n="faq.q1.a">Não — faixas originais/geradas, pensadas para foco, relax e sono.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="faq.q2.t">Funciona offline?</h3>
-            <p data-i18n="faq.q2.a">Sim. Podes descarregar packs e usar sem internet.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="faq.q3.t">Diferença para playlists?</h3>
-            <p data-i18n="faq.q3.a">Variações subtis reduzem habituação e prolongam o estado de fluxo.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="faq.q4.t">E a privacidade?</h3>
-            <p data-i18n="faq.q4.a">Coletamos o mínimo. Podes pedir eliminação via <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
-          </article>
-        </div>
+
+        <details class="faq">
+          <summary data-i18n="faq.q1.t">A música tem direitos?</summary>
+          <div class="faq-body" data-i18n="faq.q1.a">Não — faixas originais/geradas, pensadas para foco, relax e sono.</div>
+        </details>
+
+        <details class="faq">
+          <summary data-i18n="faq.q2.t">Funciona offline?</summary>
+          <div class="faq-body" data-i18n="faq.q2.a">Sim. Podes descarregar packs e usar sem internet.</div>
+        </details>
+
+        <details class="faq">
+          <summary data-i18n="faq.q3.t">Diferença para playlists?</summary>
+          <div class="faq-body" data-i18n="faq.q3.a">Variações subtis reduzem habituação e prolongam o estado de fluxo.</div>
+        </details>
+
+        <details class="faq">
+          <summary data-i18n="faq.q4.t">E a privacidade?</summary>
+          <div class="faq-body" data-i18n="faq.q4.a">Coletamos o mínimo. Podes pedir eliminação via <a href="mailto:support@sonari.app">support@sonari.app</a>.</div>
+        </details>
       </div>
     </section>
 
@@ -190,10 +204,11 @@
 
         <div class="ts-dots" id="testimonialDots" aria-hidden="true"></div>
 
-        <div class="press">
+        <div class="press" style="margin-top:14px">
           <span class="tag">Feito na Europa</span>
           <span class="tag">Universitários em PT/ES</span>
           <span class="tag">Coworkings em Lisboa</span>
+          <a class="tag" href="press/" aria-label="Press Kit">Press Kit</a>
         </div>
       </div>
     </section>
@@ -216,8 +231,8 @@
         <p>© 2025 Sonari</p>
       </div>
       <nav class="foot-links" aria-label="Links">
-        <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
-        <a href="terms.html" data-i18n="footer.terms">Termos</a>
+        <a href="privacy.html" class="legal-link-privacy" data-i18n="footer.privacy">Privacidade</a>
+        <a href="terms.html" class="legal-link-terms" data-i18n="footer.terms">Termos</a>
         <a href="mailto:support@sonari.app" data-i18n="footer.support">Suporte</a>
       </nav>
     </div>
@@ -225,7 +240,6 @@
 
   <!-- ===== JS: idioma/tema ===== -->
   <script>
-    // Dicionário PT/EN
     const T = {
       pt: {
         "a11y.skip": "Saltar para o conteúdo",
@@ -264,7 +278,7 @@
         "how.s2": "Ajusta o <strong>mixer</strong> (chuva, ruído, pads).",
         "how.s3": "Carrega em <strong>Começar sessão</strong> e entra no fluxo.",
         "privacy.title": "Privacidade em primeiro lugar",
-        "privacy.text": "Guardamos o mínimo necessário. Consulta a <a href=\"privacy.html\">Política de Privacidade</a>.",
+        "privacy.text": "Guardamos o mínimo necessário. Consulta a <a href=\"privacy.html\" class=\"legal-link-privacy\">Política de Privacidade</a>.",
         "faq.title": "FAQ",
         "faq.q1.t": "A música tem direitos?",
         "faq.q1.a": "Não — faixas originais/geradas, pensadas para foco, relax e sono.",
@@ -321,7 +335,7 @@
         "how.s2": "Adjust the <strong>mixer</strong> (rain, noise, pads).",
         "how.s3": "Tap <strong>Start session</strong> and drop into flow.",
         "privacy.title": "Privacy first",
-        "privacy.text": "We collect the minimum necessary. Read our <a href=\"privacy.html\">Privacy Policy</a>.",
+        "privacy.text": "We collect the minimum necessary. Read our <a href=\"privacy-en.html\" class=\"legal-link-privacy\">Privacy Policy</a>.",
         "faq.title": "FAQ",
         "faq.q1.t": "Is the music copyrighted?",
         "faq.q1.a": "No — original/generated tracks designed for focus, relaxation and sleep.",
@@ -346,7 +360,7 @@
     function applyLang(lang) {
       const dict = T[lang] || T.pt;
       document.documentElement.lang = lang;
-      // meta/title/desc
+      // meta
       const titleEl = document.querySelector('[data-i18n="meta.title"]');
       const descEl = document.querySelector('[data-i18n="meta.desc"]');
       if (titleEl) titleEl.textContent = dict["meta.title"];
@@ -368,10 +382,15 @@
         const items = dict.marquee;
         track.innerHTML = items.concat(items).map(w => `<span class="pill">${w}</span>`).join('');
       }
+      // atualiza links legais consoante o idioma
+      const privLinks = document.querySelectorAll('.legal-link-privacy');
+      const termsLinks = document.querySelectorAll('.legal-link-terms');
+      privLinks.forEach(a => a.setAttribute('href', lang === 'en' ? 'privacy-en.html' : 'privacy.html'));
+      termsLinks.forEach(a => a.setAttribute('href', lang === 'en' ? 'terms-en.html' : 'terms.html'));
+
       localStorage.setItem('sonari-lang', lang);
     }
 
-    // Preferência inicial
     (function initLang() {
       const saved = localStorage.getItem('sonari-lang');
       if (saved) return applyLang(saved);
@@ -379,7 +398,7 @@
       applyLang(browser === 'en' ? 'en' : 'pt');
     })();
 
-    // Botões
+    // Botões globais
     document.getElementById('langToggle')?.addEventListener('click', () => {
       const current = document.documentElement.lang || 'pt';
       applyLang(current === 'pt' ? 'en' : 'pt');
@@ -395,7 +414,6 @@
 
   <!-- ===== JS: testemunhos / carrossel ===== -->
   <script>
-    // ===== Testemunhos (PT/EN) =====
     const TESTIMONIALS = {
       pt: [
         { name: "Ana M.", role: "Estudante, Porto", rating: 5,
@@ -449,7 +467,6 @@
       setActiveTestimonial(0);
     }
 
-    // carrossel básico
     let tsIndex = 0, tsTimer;
     function setActiveTestimonial(i) {
       const track = document.getElementById('testimonialTrack');
@@ -468,7 +485,6 @@
       if (e.target.classList.contains('dot')) setActiveTestimonial(parseInt(e.target.dataset.ix,10));
     });
 
-    // integra com o switcher de idioma já existente
     function refreshSocialLang(){
       const lang = document.documentElement.lang || 'pt';
       renderTestimonials(lang);
@@ -481,23 +497,18 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       refreshSocialLang();
-      // iniciar marquee também
       const lang = document.documentElement.lang || 'pt';
       applyLang(lang);
     });
   </script>
 
-  <!-- ===== Schema.org (opcional; ativa quando tiveres reviews reais) =====
+  <!-- (Opcional) Schema.org: ativa quando tiveres reviews reais
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
+  { "@context": "https://schema.org", "@type": "Product",
     "name": "Sonari",
     "description": "Generative audio for focus, relax and sleep.",
-    "brand": {"@type": "Brand", "name": "Sonari"},
-    "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"3"}
-  }
-  </script>
-  -->
+    "brand": {"@type":"Brand","name":"Sonari"},
+    "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"3"} }
+  </script> -->
 </body>
 </html>
