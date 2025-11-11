@@ -93,9 +93,7 @@
 
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
-      <div class="track" id="marqueeTrack">
-        <!-- será preenchido via JS conforme idioma -->
-      </div>
+      <div class="track" id="marqueeTrack"></div>
     </div>
 
     <!-- FEATURES -->
@@ -142,39 +140,61 @@
       </div>
     </section>
 
-    <!-- SOCIAL PROOF / TESTIMONIALS -->
-<section class="section" id="social">
-  <div class="container">
-    <h2 data-i18n="social.title">O que estão a dizer sobre o Sonari</h2>
-    <p class="muted" data-i18n="social.subtitle">Feedback de beta testers (PT/EU). Envia o teu também.</p>
-
-    <div class="testimonial-wrap">
-      <button class="ts-btn prev" aria-label="Anterior">‹</button>
-      <div class="testimonial-track" id="testimonialTrack" role="list">
-        <!-- cards gerados por JS -->
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 data-i18n="faq.title">FAQ</h2>
+        <div class="grid">
+          <article class="card">
+            <h3 data-i18n="faq.q1.t">A música tem direitos?</h3>
+            <p data-i18n="faq.q1.a">Não — faixas originais/geradas, pensadas para foco, relax e sono.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="faq.q2.t">Funciona offline?</h3>
+            <p data-i18n="faq.q2.a">Sim. Podes descarregar packs e usar sem internet.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="faq.q3.t">Diferença para playlists?</h3>
+            <p data-i18n="faq.q3.a">Variações subtis reduzem habituação e prolongam o estado de fluxo.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="faq.q4.t">E a privacidade?</h3>
+            <p data-i18n="faq.q4.a">Coletamos o mínimo. Podes pedir eliminação via <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
+          </article>
+        </div>
       </div>
-      <button class="ts-btn next" aria-label="Seguinte">›</button>
-    </div>
+    </section>
 
-    <div class="ts-dots" id="testimonialDots" aria-hidden="true"></div>
+    <!-- SOCIAL PROOF / TESTIMONIALS -->
+    <section class="section" id="social">
+      <div class="container">
+        <h2 data-i18n="social.title">O que estão a dizer sobre o Sonari</h2>
+        <p class="muted" data-i18n="social.subtitle">Feedback de beta testers (PT/EU). Envia o teu também.</p>
 
-    <div class="press">
-      <span class="tag">Feito na Europa</span>
-      <span class="tag">Universitários em PT/ES</span>
-      <span class="tag">Coworkings em Lisboa</span>
-    </div>
-  </div>
-</section>
+        <div class="testimonial-wrap">
+          <button class="ts-btn prev" aria-label="Anterior">‹</button>
+          <div class="testimonial-track" id="testimonialTrack" role="list"></div>
+          <button class="ts-btn next" aria-label="Seguinte">›</button>
+        </div>
 
-<!-- CTA -->
-<section class="section cta-band">
-  <div class="container cta-inner">
-    <h2 data-i18n="cta.title">Pronto para focar melhor?</h2>
-    <a class="btn lg" href="#download" data-i18n="cta.btn">Avisar no lançamento</a>
-  </div>
-</section>
+        <div class="ts-dots" id="testimonialDots" aria-hidden="true"></div>
 
+        <div class="press">
+          <span class="tag">Feito na Europa</span>
+          <span class="tag">Universitários em PT/ES</span>
+          <span class="tag">Coworkings em Lisboa</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- CTA -->
+    <section class="section cta-band">
+      <div class="container cta-inner">
+        <h2 data-i18n="cta.title">Pronto para focar melhor?</h2>
+        <a class="btn lg" href="#download" data-i18n="cta.btn">Avisar no lançamento</a>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
@@ -192,6 +212,7 @@
     </div>
   </footer>
 
+  <!-- ===== JS: idioma/tema ===== -->
   <script>
     // Dicionário PT/EN
     const T = {
@@ -216,9 +237,7 @@
         "mock.rain": "Chuva",
         "mock.pink": "Ruído Rosa",
         "mock.pad": "Pad",
-        // Marquee
         marquee: ["Foco","Leitura","Relax","Sono","Deep Work","Pomodoro","Respiração"],
-        // Sections
         "features.title": "Porque o Sonari funciona",
         "features.subtitle": "Som gerado + variações subtis = menos habituação e mais foco.",
         "features.f1.title": "Som gerado",
@@ -250,7 +269,9 @@
         "footer.terms": "Termos",
         "footer.support": "Suporte",
         "meta.title": "Sonari — Música inteligente para foco, sono e relaxamento",
-        "meta.desc": "Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar."
+        "meta.desc": "Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar.",
+        "social.title": "O que estão a dizer sobre o Sonari",
+        "social.subtitle": "Feedback de beta testers (PT/EU). Envia o teu também."
       },
       en: {
         "a11y.skip": "Skip to content",
@@ -305,11 +326,12 @@
         "footer.terms": "Terms",
         "footer.support": "Support",
         "meta.title": "Sonari — Intelligent music for focus, sleep and relaxation",
-        "meta.desc": "Generative music and ambient sounds to help you focus, relax, and sleep. Minimal design, privacy-first."
+        "meta.desc": "Generative music and ambient sounds to help you focus, relax, and sleep. Minimal design, privacy-first.",
+        "social.title": "What people say about Sonari",
+        "social.subtitle": "Beta testers feedback (EU). Send yours too."
       }
     };
 
-    // Troca de idioma
     function applyLang(lang) {
       const dict = T[lang] || T.pt;
       document.documentElement.lang = lang;
@@ -322,7 +344,6 @@
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (!key || !dict[key]) return;
-        // suporta HTML (p/ <strong> etc)
         el.innerHTML = dict[key];
       });
       // placeholders
@@ -351,6 +372,7 @@
     document.getElementById('langToggle')?.addEventListener('click', () => {
       const current = document.documentElement.lang || 'pt';
       applyLang(current === 'pt' ? 'en' : 'pt');
+      setTimeout(refreshSocialLang, 50);
     });
     document.getElementById('themeToggle')?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'system';
@@ -359,5 +381,112 @@
       localStorage.setItem('sonari-theme', next);
     });
   </script>
+
+  <!-- ===== JS: testemunhos / carrossel ===== -->
+  <script>
+    // ===== Testemunhos (PT/EN) =====
+    const TESTIMONIALS = {
+      pt: [
+        { name: "Ana M.", role: "Estudante, Porto", rating: 5,
+          quote: "Consigo estudar 50 minutos seguidos sem mexer no telemóvel. As variações de som ajudam mesmo.",
+          avatar: "A" },
+        { name: "Miguel R.", role: "Designer, Lisboa", rating: 5,
+          quote: "Usei o modo Sono — adormeço mais depressa e acordo com mais energia.",
+          avatar: "M" },
+        { name: "Sofia L.", role: "Investigadora, Braga", rating: 4,
+          quote: "Interface simples, sem distrações. O mixer com chuva + pad é perfeito para leitura.",
+          avatar: "S" }
+      ],
+      en: [
+        { name: "Emma K.", role: "Student, London", rating: 5,
+          quote: "Deep Focus keeps me in flow longer than playlists. Subtle variations are great.",
+          avatar: "E" },
+        { name: "Lucas D.", role: "Developer, Berlin", rating: 5,
+          quote: "Sleep mode works surprisingly well. Fell asleep faster, woke up rested.",
+          avatar: "L" },
+        { name: "Claire P.", role: "PhD, Paris", rating: 4,
+          quote: "Clean UI, no distractions. Rain + pink noise is my go-to.",
+          avatar: "C" }
+      ]
+    };
+
+    const starSVG = `<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+
+    function renderTestimonials(lang) {
+      const data = TESTIMONIALS[lang] || TESTIMONIALS.pt;
+      const track = document.getElementById('testimonialTrack');
+      const dots = document.getElementById('testimonialDots');
+      if (!track) return;
+
+      track.innerHTML = data.map((t) => `
+        <article class="t-card" role="listitem" aria-label="${t.name}">
+          <div class="t-head">
+            <div class="avatar" aria-hidden="true">${(t.avatar || t.name[0]).toUpperCase()}</div>
+            <div>
+              <strong>${t.name}</strong>
+              <div class="muted">${t.role}</div>
+            </div>
+          </div>
+          <p class="t-quote">“${t.quote}”</p>
+          <div class="t-stars" aria-label="${t.rating} estrelas">
+            ${Array.from({length: t.rating}).map(()=>`<span class="star">${starSVG}</span>`).join('')}
+          </div>
+        </article>
+      `).join('');
+
+      dots.innerHTML = data.map((_, i) => `<button class="dot" data-ix="${i}" aria-label="Slide ${i+1}"></button>`).join('');
+      setActiveTestimonial(0);
+    }
+
+    // carrossel básico
+    let tsIndex = 0, tsTimer;
+    function setActiveTestimonial(i) {
+      const track = document.getElementById('testimonialTrack');
+      const cards = track?.children || [];
+      const dots = document.querySelectorAll('#testimonialDots .dot');
+      if (!cards.length) return;
+      tsIndex = (i + cards.length) % cards.length;
+      track.style.transform = `translateX(-${tsIndex * 100}%)`;
+      dots.forEach((d,ix)=>d.classList.toggle('active', ix===tsIndex));
+      clearInterval(tsTimer);
+      tsTimer = setInterval(()=> setActiveTestimonial(tsIndex+1), 5000);
+    }
+    document.querySelector('.ts-btn.prev')?.addEventListener('click', ()=> setActiveTestimonial(tsIndex-1));
+    document.querySelector('.ts-btn.next')?.addEventListener('click', ()=> setActiveTestimonial(tsIndex+1));
+    document.getElementById('testimonialDots')?.addEventListener('click', (e)=>{
+      if (e.target.classList.contains('dot')) setActiveTestimonial(parseInt(e.target.dataset.ix,10));
+    });
+
+    // integra com o switcher de idioma já existente
+    function refreshSocialLang(){
+      const lang = document.documentElement.lang || 'pt';
+      renderTestimonials(lang);
+      const d = (lang === 'en') ? T.en : T.pt;
+      const t1 = document.querySelector('[data-i18n="social.title"]');
+      const t2 = document.querySelector('[data-i18n="social.subtitle"]');
+      if (t1) t1.innerHTML = d["social.title"];
+      if (t2) t2.innerHTML = d["social.subtitle"];
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      refreshSocialLang();
+      // iniciar marquee também
+      const lang = document.documentElement.lang || 'pt';
+      applyLang(lang);
+    });
+  </script>
+
+  <!-- ===== Schema.org (opcional; ativa quando tiveres reviews reais) =====
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Sonari",
+    "description": "Generative audio for focus, relax and sleep.",
+    "brand": {"@type": "Brand", "name": "Sonari"},
+    "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"3"}
+  }
+  </script>
+  -->
 </body>
 </html>
