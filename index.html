@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="system">
+<html lang="pt" data-theme="system">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonari — Intelligent music for focus, sleep and relaxation</title>
-  <meta name="description" content="Generative music and ambient sounds to help you focus, relax, and sleep. Minimal design, privacy-first.">
+  <title data-i18n="meta.title">Sonari — Música inteligente para foco, sono e relaxamento</title>
+  <meta name="description" data-i18n="meta.desc" content="Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Sonari — Intelligent music for focus, sleep and relaxation">
-  <meta property="og:description" content="Generative tracks and ambient soundscapes to get you into flow.">
+  <meta property="og:title" content="Sonari">
+  <meta property="og:description" content="Generative audio for focus, relax and sleep.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="logo.svg">
   <meta name="twitter:card" content="summary_large_image">
   <script>
+    // Tema persistente
     (function () {
       const saved = localStorage.getItem('sonari-theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -22,21 +23,22 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
+  <a class="skip" href="#content" data-i18n="a11y.skip">Saltar para o conteúdo</a>
 
   <!-- NAV -->
-  <header class="nav" role="banner" aria-label="Main navigation">
+  <header class="nav" role="banner" aria-label="Navegação">
     <div class="container nav-inner">
       <a class="brand" href="/" aria-label="Sonari home">
         <img src="logo.svg" alt="" width="20" height="20" class="logo" />
         <span>Sonari</span>
       </a>
-      <nav class="nav-links" aria-label="Site sections">
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn sm" href="#download">Download</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <nav class="nav-links" aria-label="Secções">
+        <a href="#how" data-i18n="nav.how">Como funciona</a>
+        <a href="#features" data-i18n="nav.features">Funcionalidades</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="btn sm" href="#download" data-i18n="nav.download">Download</a>
+        <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
+        <button id="langToggle" class="icon-btn" aria-label="Alternar idioma">PT/EN</button>
       </nav>
     </div>
   </header>
@@ -49,23 +51,23 @@
 
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Intelligent audio • Made in Europe</p>
-          <h1>Enter the <span class="grad">flow state</span> with Sonari</h1>
-          <p class="lead">Generative tracks and ambient soundscapes for <strong>focus</strong>, <strong>relaxation</strong> and <strong>sleep</strong>. Minimal interface, zero distractions.</p>
+          <p class="kicker" data-i18n="hero.kicker">Áudio inteligente • Feito na Europa</p>
+          <h1 data-i18n="hero.title">Entra no <span class="grad">estado de fluxo</span> com o Sonari</h1>
+          <p class="lead" data-i18n="hero.lead">Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Design minimalista, sem distrações.</p>
 
           <div class="cta">
-            <a class="btn" id="download" href="#">Coming soon: App Store & Google Play</a>
-            <a class="btn ghost" href="privacy.html">Privacy</a>
-            <a class="btn ghost" href="terms.html">Terms</a>
+            <a class="btn" id="download" href="#" data-i18n="hero.cta_main">Brevemente: App Store & Google Play</a>
+            <a class="btn ghost" href="privacy.html" data-i18n="hero.privacy">Privacidade</a>
+            <a class="btn ghost" href="terms.html" data-i18n="hero.terms">Termos</a>
           </div>
 
-          <!-- Email capture (swap to your email) -->
+          <!-- Waitlist -->
           <form class="waitlist" action="https://formsubmit.co/your@email.com" method="POST">
-            <input type="hidden" name="_subject" value="Sonari — New waitlist signup">
-            <input type="email" name="email" placeholder="Your email" aria-label="Email" required>
-            <button type="submit" class="btn sm">Notify me on launch</button>
+            <input type="hidden" name="_subject" value="Sonari — Waitlist">
+            <input type="email" name="email" placeholder="O teu email" aria-label="Email" data-i18n-placeholder="form.email_ph" required>
+            <button type="submit" class="btn sm" data-i18n="form.submit">Avisar no lançamento</button>
           </form>
-          <small class="muted">No spam. Unsubscribe anytime.</small>
+          <small class="muted" data-i18n="form.note">Sem spam. Podes cancelar quando quiseres.</small>
         </div>
 
         <!-- PHONE MOCKUP -->
@@ -74,15 +76,15 @@
           <div class="phone-screen">
             <div class="app-header"><span class="logo-mini"></span><b>Sonari</b></div>
             <div class="session-card">
-              <h3>Deep Focus</h3>
-              <p class="meta">Adaptive track • 25:00</p>
+              <h3 data-i18n="mock.mode">Foco Profundo</h3>
+              <p class="meta" data-i18n="mock.meta">Trilha adaptativa • 25:00</p>
               <div class="meters"><span></span><span></span><span></span><span></span></div>
-              <button class="play">Start session</button>
+              <button class="play" data-i18n="mock.play">Começar sessão</button>
             </div>
             <div class="mixer">
-              <div class="row"><label>Rain</label><input type="range" min="0" max="100" value="60"></div>
-              <div class="row"><label>Pink Noise</label><input type="range" min="0" max="100" value="40"></div>
-              <div class="row"><label>Pad</label><input type="range" min="0" max="100" value="50"></div>
+              <div class="row"><label data-i18n="mock.rain">Chuva</label><input type="range" min="0" max="100" value="60"></div>
+              <div class="row"><label data-i18n="mock.pink">Ruído Rosa</label><input type="range" min="0" max="100" value="40"></div>
+              <div class="row"><label data-i18n="mock.pad">Pad</label><input type="range" min="0" max="100" value="50"></div>
             </div>
           </div>
         </div>
@@ -91,35 +93,32 @@
 
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
-      <div class="track">
-        <span class="pill">Focus</span><span class="pill">Reading</span><span class="pill">Relax</span><span class="pill">Sleep</span>
-        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Breathing</span>
-        <span class="pill">Focus</span><span class="pill">Reading</span><span class="pill">Relax</span><span class="pill">Sleep</span>
-        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Breathing</span>
+      <div class="track" id="marqueeTrack">
+        <!-- será preenchido via JS conforme idioma -->
       </div>
     </div>
 
     <!-- FEATURES -->
     <section id="features" class="section">
       <div class="container">
-        <h2>Why Sonari works</h2>
-        <p class="muted">Generative layers + subtle variation = less habituation, more flow.</p>
+        <h2 data-i18n="features.title">Porque o Sonari funciona</h2>
+        <p class="muted" data-i18n="features.subtitle">Som gerado + variações subtis = menos habituação e mais foco.</p>
         <div class="grid features">
           <article class="card">
-            <h3>Generative sound</h3>
-            <p>Original layers with micro-variations over time.</p>
+            <h3 data-i18n="features.f1.title">Som gerado</h3>
+            <p data-i18n="features.f1.text">Camadas originais com micro-variações ao longo da sessão.</p>
           </article>
           <article class="card">
-            <h3>Ready-made modes</h3>
-            <p>Focus, Reading, Relax, Sleep — pick and start.</p>
+            <h3 data-i18n="features.f2.title">Modos prontos</h3>
+            <p data-i18n="features.f2.text">Foco, Leitura, Relax, Sono — escolhe e começa.</p>
           </article>
           <article class="card">
-            <h3>Offline packs</h3>
-            <p>Downloadable content for zero-network sessions.</p>
+            <h3 data-i18n="features.f3.title">Offline</h3>
+            <p data-i18n="features.f3.text">Packs descarregáveis para usar sem internet.</p>
           </article>
           <article class="card">
-            <h3>Session stats</h3>
-            <p>Focused minutes, streaks, gentle reminders.</p>
+            <h3 data-i18n="features.f4.title">Métricas</h3>
+            <p data-i18n="features.f4.text">Tempo focado, streaks e lembretes gentis.</p>
           </article>
         </div>
       </div>
@@ -129,16 +128,16 @@
     <section id="how" class="section alt">
       <div class="container two-col">
         <div>
-          <h2>How it works</h2>
+          <h2 data-i18n="how.title">Como funciona</h2>
           <ol class="steps">
-            <li>Choose a <strong>mode</strong>.</li>
-            <li>Adjust the <strong>mixer</strong> (rain, noise, pads).</li>
-            <li>Tap <strong>Start session</strong> and drop into flow.</li>
+            <li data-i18n="how.s1">Escolhe um <strong>modo</strong>.</li>
+            <li data-i18n="how.s2">Ajusta o <strong>mixer</strong> (chuva, ruído, pads).</li>
+            <li data-i18n="how.s3">Carrega em <strong>Começar sessão</strong> e entra no fluxo.</li>
           </ol>
         </div>
         <div class="card big">
-          <h3>Privacy first</h3>
-          <p class="muted">We collect the minimum necessary. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+          <h3 data-i18n="privacy.title">Privacidade em primeiro lugar</h3>
+          <p class="muted" data-i18n="privacy.text">Guardamos o mínimo necessário. Consulta a <a href="privacy.html">Política de Privacidade</a>.</p>
         </div>
       </div>
     </section>
@@ -146,23 +145,23 @@
     <!-- FAQ -->
     <section id="faq" class="section">
       <div class="container">
-        <h2>FAQ</h2>
+        <h2 data-i18n="faq.title">FAQ</h2>
         <div class="grid">
           <article class="card">
-            <h3>Is the music copyrighted?</h3>
-            <p>No — tracks are original and/or generated, designed for focus, relaxation and sleep.</p>
+            <h3 data-i18n="faq.q1.t">A música tem direitos?</h3>
+            <p data-i18n="faq.q1.a">Não — faixas originais/geradas, pensadas para foco, relax e sono.</p>
           </article>
           <article class="card">
-            <h3>Will it work offline?</h3>
-            <p>Yes. You can download packs and use them without internet.</p>
+            <h3 data-i18n="faq.q2.t">Funciona offline?</h3>
+            <p data-i18n="faq.q2.a">Sim. Podes descarregar packs e usar sem internet.</p>
           </article>
           <article class="card">
-            <h3>How is Sonari different from playlists?</h3>
-            <p>Subtle variations reduce habituation, helping you stay in flow longer than static playlists.</p>
+            <h3 data-i18n="faq.q3.t">Diferença para playlists?</h3>
+            <p data-i18n="faq.q3.a">Variações subtis reduzem habituação e prolongam o estado de fluxo.</p>
           </article>
           <article class="card">
-            <h3>What about privacy?</h3>
-            <p>We keep data to a minimum. You can request deletion anytime via <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
+            <h3 data-i18n="faq.q4.t">E a privacidade?</h3>
+            <p data-i18n="faq.q4.a">Coletamos o mínimo. Podes pedir eliminação via <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
           </article>
         </div>
       </div>
@@ -171,8 +170,8 @@
     <!-- CTA -->
     <section class="section cta-band">
       <div class="container cta-inner">
-        <h2>Ready to focus better?</h2>
-        <a class="btn lg" href="#download">Notify me on launch</a>
+        <h2 data-i18n="cta.title">Pronto para focar melhor?</h2>
+        <a class="btn lg" href="#download" data-i18n="cta.btn">Avisar no lançamento</a>
       </div>
     </section>
   </main>
@@ -185,22 +184,179 @@
         <strong>Sonari</strong>
         <p>© 2025 Sonari</p>
       </div>
-      <nav class="foot-links" aria-label="Legal links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="mailto:support@sonari.app">Support</a>
+      <nav class="foot-links" aria-label="Links">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
+        <a href="terms.html" data-i18n="footer.terms">Termos</a>
+        <a href="mailto:support@sonari.app" data-i18n="footer.support">Suporte</a>
       </nav>
     </div>
   </footer>
 
   <script>
-    const btn = document.getElementById('themeToggle');
-    btn?.addEventListener('click', () => {
+    // Dicionário PT/EN
+    const T = {
+      pt: {
+        "a11y.skip": "Saltar para o conteúdo",
+        "nav.how": "Como funciona",
+        "nav.features": "Funcionalidades",
+        "nav.faq": "FAQ",
+        "nav.download": "Download",
+        "hero.kicker": "Áudio inteligente • Feito na Europa",
+        "hero.title": "Entra no <span class='grad'>estado de fluxo</span> com o Sonari",
+        "hero.lead": "Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Design minimalista, sem distrações.",
+        "hero.cta_main": "Brevemente: App Store & Google Play",
+        "hero.privacy": "Privacidade",
+        "hero.terms": "Termos",
+        "form.email_ph": "O teu email",
+        "form.submit": "Avisar no lançamento",
+        "form.note": "Sem spam. Podes cancelar quando quiseres.",
+        "mock.mode": "Foco Profundo",
+        "mock.meta": "Trilha adaptativa • 25:00",
+        "mock.play": "Começar sessão",
+        "mock.rain": "Chuva",
+        "mock.pink": "Ruído Rosa",
+        "mock.pad": "Pad",
+        // Marquee
+        marquee: ["Foco","Leitura","Relax","Sono","Deep Work","Pomodoro","Respiração"],
+        // Sections
+        "features.title": "Porque o Sonari funciona",
+        "features.subtitle": "Som gerado + variações subtis = menos habituação e mais foco.",
+        "features.f1.title": "Som gerado",
+        "features.f1.text": "Camadas originais com micro-variações ao longo da sessão.",
+        "features.f2.title": "Modos prontos",
+        "features.f2.text": "Foco, Leitura, Relax, Sono — escolhe e começa.",
+        "features.f3.title": "Offline",
+        "features.f3.text": "Packs descarregáveis para usar sem internet.",
+        "features.f4.title": "Métricas",
+        "features.f4.text": "Tempo focado, streaks e lembretes gentis.",
+        "how.title": "Como funciona",
+        "how.s1": "Escolhe um <strong>modo</strong>.",
+        "how.s2": "Ajusta o <strong>mixer</strong> (chuva, ruído, pads).",
+        "how.s3": "Carrega em <strong>Começar sessão</strong> e entra no fluxo.",
+        "privacy.title": "Privacidade em primeiro lugar",
+        "privacy.text": "Guardamos o mínimo necessário. Consulta a <a href=\"privacy.html\">Política de Privacidade</a>.",
+        "faq.title": "FAQ",
+        "faq.q1.t": "A música tem direitos?",
+        "faq.q1.a": "Não — faixas originais/geradas, pensadas para foco, relax e sono.",
+        "faq.q2.t": "Funciona offline?",
+        "faq.q2.a": "Sim. Podes descarregar packs e usar sem internet.",
+        "faq.q3.t": "Diferença para playlists?",
+        "faq.q3.a": "Variações subtis reduzem habituação e prolongam o estado de fluxo.",
+        "faq.q4.t": "E a privacidade?",
+        "faq.q4.a": "Coletamos o mínimo. Podes pedir eliminação via <a href=\"mailto:support@sonari.app\">support@sonari.app</a>.",
+        "cta.title": "Pronto para focar melhor?",
+        "cta.btn": "Avisar no lançamento",
+        "footer.privacy": "Privacidade",
+        "footer.terms": "Termos",
+        "footer.support": "Suporte",
+        "meta.title": "Sonari — Música inteligente para foco, sono e relaxamento",
+        "meta.desc": "Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar."
+      },
+      en: {
+        "a11y.skip": "Skip to content",
+        "nav.how": "How it works",
+        "nav.features": "Features",
+        "nav.faq": "FAQ",
+        "nav.download": "Download",
+        "hero.kicker": "Intelligent audio • Made in Europe",
+        "hero.title": "Enter the <span class='grad'>flow state</span> with Sonari",
+        "hero.lead": "Generative tracks and ambient soundscapes for <strong>focus</strong>, <strong>relaxation</strong> and <strong>sleep</strong>. Minimal interface, zero distractions.",
+        "hero.cta_main": "Coming soon: App Store & Google Play",
+        "hero.privacy": "Privacy",
+        "hero.terms": "Terms",
+        "form.email_ph": "Your email",
+        "form.submit": "Notify me on launch",
+        "form.note": "No spam. Unsubscribe anytime.",
+        "mock.mode": "Deep Focus",
+        "mock.meta": "Adaptive track • 25:00",
+        "mock.play": "Start session",
+        "mock.rain": "Rain",
+        "mock.pink": "Pink Noise",
+        "mock.pad": "Pad",
+        marquee: ["Focus","Reading","Relax","Sleep","Deep Work","Pomodoro","Breathing"],
+        "features.title": "Why Sonari works",
+        "features.subtitle": "Generative layers + subtle variation = less habituation, more flow.",
+        "features.f1.title": "Generative sound",
+        "features.f1.text": "Original layers with micro-variations over time.",
+        "features.f2.title": "Ready-made modes",
+        "features.f2.text": "Focus, Reading, Relax, Sleep — pick and start.",
+        "features.f3.title": "Offline packs",
+        "features.f3.text": "Downloadable content for zero-network sessions.",
+        "features.f4.title": "Session stats",
+        "features.f4.text": "Focused minutes, streaks, gentle reminders.",
+        "how.title": "How it works",
+        "how.s1": "Choose a <strong>mode</strong>.",
+        "how.s2": "Adjust the <strong>mixer</strong> (rain, noise, pads).",
+        "how.s3": "Tap <strong>Start session</strong> and drop into flow.",
+        "privacy.title": "Privacy first",
+        "privacy.text": "We collect the minimum necessary. Read our <a href=\"privacy.html\">Privacy Policy</a>.",
+        "faq.title": "FAQ",
+        "faq.q1.t": "Is the music copyrighted?",
+        "faq.q1.a": "No — original/generated tracks designed for focus, relaxation and sleep.",
+        "faq.q2.t": "Will it work offline?",
+        "faq.q2.a": "Yes. You can download packs and use them without internet.",
+        "faq.q3.t": "How is this different from playlists?",
+        "faq.q3.a": "Subtle variation reduces habituation and helps you stay in flow longer.",
+        "faq.q4.t": "What about privacy?",
+        "faq.q4.a": "We keep data to a minimum. You can request deletion at <a href=\"mailto:support@sonari.app\">support@sonari.app</a>.",
+        "cta.title": "Ready to focus better?",
+        "cta.btn": "Notify me on launch",
+        "footer.privacy": "Privacy",
+        "footer.terms": "Terms",
+        "footer.support": "Support",
+        "meta.title": "Sonari — Intelligent music for focus, sleep and relaxation",
+        "meta.desc": "Generative music and ambient sounds to help you focus, relax, and sleep. Minimal design, privacy-first."
+      }
+    };
+
+    // Troca de idioma
+    function applyLang(lang) {
+      const dict = T[lang] || T.pt;
+      document.documentElement.lang = lang;
+      // meta/title/desc
+      const titleEl = document.querySelector('[data-i18n="meta.title"]');
+      const descEl = document.querySelector('[data-i18n="meta.desc"]');
+      if (titleEl) titleEl.textContent = dict["meta.title"];
+      if (descEl) descEl.setAttribute('content', dict["meta.desc"]);
+      // textos
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!key || !dict[key]) return;
+        // suporta HTML (p/ <strong> etc)
+        el.innerHTML = dict[key];
+      });
+      // placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+      // marquee
+      const track = document.getElementById('marqueeTrack');
+      if (track) {
+        const items = dict.marquee;
+        track.innerHTML = items.concat(items).map(w => `<span class="pill">${w}</span>`).join('');
+      }
+      localStorage.setItem('sonari-lang', lang);
+    }
+
+    // Preferência inicial
+    (function initLang() {
+      const saved = localStorage.getItem('sonari-lang');
+      if (saved) return applyLang(saved);
+      const browser = (navigator.language || 'pt').slice(0,2);
+      applyLang(browser === 'en' ? 'en' : 'pt');
+    })();
+
+    // Botões
+    document.getElementById('langToggle')?.addEventListener('click', () => {
+      const current = document.documentElement.lang || 'pt';
+      applyLang(current === 'pt' ? 'en' : 'pt');
+    });
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'system';
       const next = current === 'dark' ? 'light' : current === 'light' ? 'system' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('sonari-theme', next);
-      btn.title = 'Theme: ' + next;
     });
   </script>
 </body>
