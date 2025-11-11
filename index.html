@@ -1,242 +1,196 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" data-theme="system">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sonari — Música inteligente para foco, sono e relaxamento</title>
-  <meta name="description" content="Trilhas geradas e sons ambientes para foco, sono e relaxamento. Experiência minimalista e sem distrações.">
+  <meta name="description" content="Música e sons gerados para foco, sono e relaxamento. Interface minimalista, privacidade em primeiro lugar.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0a0a0a; --bg2:#111; --text:#fff; --muted:#b9b9b9;
-      --line:rgba(255,255,255,.08);
-      --brand:#1db954; --brand2:#21e06d;
-      --card:#141414; --rad:16px; --max:1100px;
-      --shadow:0 20px 60px rgba(0,0,0,.45);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(900px 500px at -10% -10%, rgba(33,224,109,.09), transparent),
-        radial-gradient(900px 500px at 110% 10%, rgba(29,185,84,.08), transparent),
-        linear-gradient(180deg,var(--bg),var(--bg2));
-      color:var(--text);
-    }
-    a{color:#e8ffe6;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
-    /* nav */
-    .nav{position:sticky;top:0;z-index:40;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-    .nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:10px;align-items:center;color:#fff;font-weight:700}
-    .brand .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2))}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:#fff;opacity:.85}
-    .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b0b0b;font-weight:700;box-shadow:var(--shadow)}
-    .btn.ghost{background:transparent;border:1px solid var(--line);color:#fff}
-    /* hero */
-    .hero{position:relative;overflow:hidden}
-    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:96px 0 64px}
-    .kicker{letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:#cfe9d6}
-    h1{font-size:52px;line-height:1.05;margin:10px 0 12px}
-    .grad{background:linear-gradient(135deg,var(--brand),#b8ffd9);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{color:var(--muted);font-size:18px;max-width:560px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .badges{display:flex;gap:10px;margin-top:12px;opacity:.85}
-    .badge{border:1px solid var(--line);border-radius:12px;padding:8px 12px}
-    /* phone mock */
-    .phone{justify-self:end; width:320px; max-width:94%; height:640px; background:#0e0e0e; border:1px solid #1f1f1f; border-radius:32px; box-shadow:var(--shadow); position:relative}
-    .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:140px;height:28px;background:#0a0a0a;border-bottom-left-radius:18px;border-bottom-right-radius:18px;border:1px solid #1a1a1a;border-top:none}
-    .screen{padding:18px}
-    .appbar{display:flex;gap:10px;align-items:center;color:#ededed;margin-bottom:10px}
-    .logo-mini{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2))}
-    .card{background:linear-gradient(180deg,#161616,#101010);border:1px solid #242424;border-radius:16px;padding:16px}
-    .session{margin:8px 0 14px}
-    .meta{margin:4px 0 10px;color:#bdbdbd}
-    .meters{display:flex;gap:6px;margin:8px 0 14px}
-    .meters span{flex:1;height:18px;border-radius:8px;background:linear-gradient(90deg,rgba(33,224,109,.35),rgba(33,224,109,.05))}
-    .play{width:100%;padding:10px 14px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0a0a;font-weight:700}
-    .mixer{margin-top:12px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;margin:6px 0}
-    .row label{color:#d7d7d7}
-    input[type=range]{accent-color:var(--brand)}
-    /* marquee modes */
-    .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap}
-    .marquee .track{display:inline-block;padding:10px 0;animation:scroll 20s linear infinite}
-    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;margin:6px 8px;color:#eaeaea}
-    @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    /* sections */
-    .section{padding:80px 0}
-    .section h2{font-size:34px;margin:0 0 16px}
-    .muted{color:var(--muted)}
-    .grid{display:grid;gap:18px}
-    .features{grid-template-columns:repeat(4,1fr)}
-    .fcard{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:18px}
-    .alt{background:linear-gradient(180deg,#0c0c0c,#0a0a0a)}
-    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
-    .quote{font-size:18px;color:#e7ffe9}
-    .press{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
-    .press .tag{border:1px solid var(--line);border-radius:10px;padding:6px 10px;opacity:.8}
-    /* cta */
-    .cta-band{padding:72px 0;background:radial-gradient(800px 220px at 50% 0, rgba(33,224,109,.12), transparent);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
-    /* footer */
-    footer{padding:28px 0;border-top:1px solid var(--line)}
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .foot .brand{gap:10px}
-    .foot a{color:#dcdcdc}
-    /* responsive */
-    @media (max-width: 980px){
-      .hero .wrap{grid-template-columns:1fr;gap:28px;padding:84px 0 48px}
-      .phone{justify-self:center}
-      .features{grid-template-columns:repeat(2,1fr)}
-      .two{grid-template-columns:1fr}
-      .cta-inner{flex-direction:column;align-items:flex-start}
-      h1{font-size:40px}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="Sonari — Música inteligente para foco, sono e relaxamento">
+  <meta property="og:description" content="Trilhas geradas e sons ambientes para entrar no estado de fluxo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script>
+    // tema persistente (dark/light/system)
+    (function () {
+      const saved = localStorage.getItem('sonari-theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
+  <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav" role="banner" aria-label="Navegação principal">
     <div class="container nav-inner">
-      <a class="brand" href="#"><span class="dot"></span> Sonari</a>
-      <nav class="links">
+      <a class="brand" href="/" aria-label="Página inicial Sonari">
+        <img src="logo.svg" alt="" width="20" height="20" class="logo" />
+        <span>Sonari</span>
+      </a>
+      <nav class="nav-links" aria-label="Secções do site">
         <a href="#como">Como funciona</a>
         <a href="#features">Funcionalidades</a>
-        <a href="privacy.html">Privacidade</a>
-        <a class="btn" href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn sm" href="#download">Download</a>
+        <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <div class="kicker">Áudio inteligente • Europa</div>
-        <h1>Entra no <span class="grad">estado de fluxo</span> com o Sonari</h1>
-        <p class="lead">Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Interface minimalista. Sem distrações, sem direitos autorais.</p>
-        <div class="cta">
-          <a id="download" class="btn" href="#">Brevemente: App Store & Google Play</a>
-          <a class="btn ghost" href="terms.html">Termos</a>
-        </div>
-        <div class="badges">
-          <div class="badge"> App Store</div>
-          <div class="badge">▶ Google Play</div>
-        </div>
-      </div>
+  <main id="conteudo">
+    <section class="hero">
+      <div class="bg-blur blur-1" aria-hidden="true"></div>
+      <div class="bg-blur blur-2" aria-hidden="true"></div>
 
-      <!-- PHONE MOCKUP -->
-      <div class="phone">
-        <div class="notch"></div>
-        <div class="screen">
-          <div class="appbar"><div class="logo-mini"></div><span>Sonari</span></div>
-          <div class="card session">
-            <h3>Foco Profundo</h3>
-            <div class="meta">Trilha adaptativa • 25:00</div>
-            <div class="meters"><span></span><span></span><span></span><span></span></div>
-            <button class="play">Começar sessão</button>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Áudio inteligente • Feito na Europa</p>
+          <h1>Entra no <span class="grad">estado de fluxo</span> com o Sonari</h1>
+          <p class="lead">Trilhas geradas e sons ambientes para <strong>focar</strong>, <strong>relaxar</strong> e <strong>dormir</strong>. Design minimalista, sem distrações.</p>
+
+          <div class="cta">
+            <a class="btn" id="download" href="#">Brevemente: App Store & Google Play</a>
+            <a class="btn ghost" href="privacy.html">Privacidade</a>
+            <a class="btn ghost" href="terms.html">Termos</a>
           </div>
-          <div class="card mixer">
-            <div class="row"><label>Chuva</label><input type="range" min="0" max="100" value="60"></div>
-            <div class="row"><label>Ruído Rosa</label><input type="range" min="0" max="100" value="40"></div>
-            <div class="row"><label>Pad</label><input type="range" min="0" max="100" value="50"></div>
+
+          <!-- Captura de email (gratuita via formsubmit.co) -->
+          <form class="waitlist" action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="hidden" name="_subject" value="Sonari — Nova inscrição na lista de espera">
+            <input type="email" name="email" placeholder="O teu email" aria-label="Email" required>
+            <button type="submit" class="btn sm">Avisar no lançamento</button>
+          </form>
+          <small class="muted">Sem spam. Podes cancelar quando quiseres.</small>
+        </div>
+
+        <!-- PHONE MOCKUP -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-header"><span class="logo-mini"></span><b>Sonari</b></div>
+            <div class="session-card">
+              <h3>Foco Profundo</h3>
+              <p class="meta">Trilha adaptativa • 25:00</p>
+              <div class="meters"><span></span><span></span><span></span><span></span></div>
+              <button class="play">Começar sessão</button>
+            </div>
+            <div class="mixer">
+              <div class="row"><label>Chuva</label><input type="range" min="0" max="100" value="60"></div>
+              <div class="row"><label>Ruído Rosa</label><input type="range" min="0" max="100" value="40"></div>
+              <div class="row"><label>Pad</label><input type="range" min="0" max="100" value="50"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MARQUEE MODES -->
-  <div class="marquee">
-    <div class="track">
-      <span class="pill">Foco</span>
-      <span class="pill">Leitura</span>
-      <span class="pill">Relax</span>
-      <span class="pill">Sono</span>
-      <span class="pill">Deep Work</span>
-      <span class="pill">Pomodoro</span>
-      <span class="pill">Respiração</span>
-      <!-- duplicate for seamless loop -->
-      <span class="pill">Foco</span>
-      <span class="pill">Leitura</span>
-      <span class="pill">Relax</span>
-      <span class="pill">Sono</span>
-      <span class="pill">Deep Work</span>
-      <span class="pill">Pomodoro</span>
-      <span class="pill">Respiração</span>
-    </div>
-  </div>
-
-  <!-- FEATURES -->
-  <section id="features" class="section">
-    <div class="container">
-      <h2>Porque o Sonari funciona</h2>
-      <p class="muted">Som gerado + variações subtis = menos habituação e mais foco.</p>
-      <div class="grid features">
-        <div class="fcard"><h3>Som gerado</h3><p>Camadas originais com variações suaves a cada poucos minutos.</p></div>
-        <div class="fcard"><h3>Modos prontos</h3><p>Foco, Leitura, Relax e Sono. Começa com um toque.</p></div>
-        <div class="fcard"><h3>Offline</h3><p>Packs descarregáveis para usares sem internet.</p></div>
-        <div class="fcard"><h3>Métricas</h3><p>Tempo focado, streaks e lembretes gentis.</p></div>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span class="pill">Foco</span><span class="pill">Leitura</span><span class="pill">Relax</span><span class="pill">Sono</span>
+        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Respiração</span>
+        <span class="pill">Foco</span><span class="pill">Leitura</span><span class="pill">Relax</span><span class="pill">Sono</span>
+        <span class="pill">Deep Work</span><span class="pill">Pomodoro</span><span class="pill">Respiração</span>
       </div>
     </div>
-  </section>
 
-  <!-- COMO FUNCIONA / PRIVACIDADE -->
-  <section id="como" class="section alt">
-    <div class="container two">
-      <div>
-        <h2>Como funciona</h2>
-        <ol class="muted">
-          <li>Escolhe um <strong>modo</strong> (Foco, Relax, Sono).</li>
-          <li>Personaliza o <strong>mixer</strong> (chuva, ruído, pads).</li>
-          <li>Carrega em <strong>Começar sessão</strong> e entra no fluxo.</li>
-        </ol>
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Porque o Sonari funciona</h2>
+        <p class="muted">Som gerado + variações subtis = menos habituação e mais foco.</p>
+        <div class="grid features">
+          <article class="card">
+            <h3>Som gerado</h3>
+            <p>Camadas originais com micro-variações ao longo da sessão.</p>
+          </article>
+          <article class="card">
+            <h3>Modos prontos</h3>
+            <p>Foco, Leitura, Relax, Sono — escolhe e começa.</p>
+          </article>
+          <article class="card">
+            <h3>Offline</h3>
+            <p>Packs descarregáveis para usar sem internet.</p>
+          </article>
+          <article class="card">
+            <h3>Métricas</h3>
+            <p>Tempo focado, streaks e lembretes gentis.</p>
+          </article>
+        </div>
       </div>
-      <div class="card">
-        <h3>Privacidade em primeiro lugar</h3>
-        <p class="muted">Guardamos o mínimo necessário. Consulta a <a href="privacy.html">Política de Privacidade</a>.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROVA SOCIAL -->
-  <section class="section">
-    <div class="container">
-      <h2>Resultados reais</h2>
-      <p class="quote">“Consigo estudar 50 minutos seguidos. As variações de som são top.” — Ana, Porto</p>
-      <div class="press">
-        <span class="tag">★ 4.9/5 TestFlight</span>
-        <span class="tag">Utilizado em coworkings de Lisboa</span>
-        <span class="tag">Feito na Europa</span>
+    <!-- COMO -->
+    <section id="como" class="section alt">
+      <div class="container two-col">
+        <div>
+          <h2>Como funciona</h2>
+          <ol class="steps">
+            <li>Escolhe um <strong>modo</strong>.</li>
+            <li>Ajusta o <strong>mixer</strong> (chuva, ruído, pads).</li>
+            <li>Carrega em <strong>Começar sessão</strong> e entra no fluxo.</li>
+          </ol>
+        </div>
+        <div class="card big">
+          <h3>Privacidade em primeiro lugar</h3>
+          <p class="muted">Guardamos o mínimo necessário. Consulta a <a href="privacy.html">Política de Privacidade</a>.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="container cta-inner">
-      <h2>Pronto para focar melhor?</h2>
-      <div class="cta">
-        <a class="btn" href="#download">Receber aviso de lançamento</a>
-        <a class="btn ghost" href="terms.html">Termos</a>
+    <!-- SOCIAL PROOF -->
+    <section class="section">
+      <div class="container">
+        <h2>Resultados reais</h2>
+        <div class="grid testimonials">
+          <blockquote class="card">“Consigo estudar 50 minutos seguidos. Variações de som top.”<cite>— Ana, Porto</cite></blockquote>
+          <blockquote class="card">“Usei para dormir — acordei descansado.”<cite>— Miguel, Lisboa</cite></blockquote>
+          <blockquote class="card">“Interface simples, sem distrações.”<cite>— Sofia, Braga</cite></blockquote>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-band">
+      <div class="container cta-inner">
+        <h2>Pronto para focar melhor?</h2>
+        <a class="btn lg" href="#download">Receber aviso de lançamento</a>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container foot">
-      <a class="brand" href="#"><span class="dot"></span> Sonari</a>
-      <nav class="links">
+  <footer class="footer" role="contentinfo">
+    <div class="container foot-grid">
+      <div class="brandline">
+        <img src="logo.svg" alt="" width="16" height="16" class="logo" />
+        <strong>Sonari</strong>
+        <p>© 2025 Sonari</p>
+      </div>
+      <nav class="foot-links" aria-label="Links legais">
         <a href="privacy.html">Privacidade</a>
         <a href="terms.html">Termos</a>
         <a href="mailto:support@sonari.app">Suporte</a>
       </nav>
     </div>
   </footer>
+
+  <script>
+    // toggle de tema com persistência
+    const btn = document.getElementById('themeToggle');
+    btn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'system';
+      const next = current === 'dark' ? 'light' : current === 'light' ? 'system' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('sonari-theme', next);
+      btn.title = 'Tema: ' + next;
+    });
+  </script>
 </body>
 </html>
