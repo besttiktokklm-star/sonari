@@ -1,1 +1,0 @@
-const C='sonari-v6-core';self.addEventListener('install',e=>{self.skipWaiting()});self.addEventListener('fetch',e=>{})
