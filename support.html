@@ -33,15 +33,22 @@
         <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
       </nav>
     </div>
-  </header>
+  
+<button class="toggle-theme" onclick="window.__toggleTheme()" aria-label="Alternar tema">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>\1<span class="reveal d3"></svg>
+  <span>Tema</span>
+</button>
+</header>
 
   <main class="section">
     <div class="container">
-      <div class="page-head"><h1>Ajuda</h1></div>
+      <div class="page-head">\1<span class="icon" aria-hidden="true" style="display:inline-block;width:1.25em;height:1.25em;margin-right:.35em;vertical-align:-.15em">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M7 19v-5a5 5 0 0 1 10 0v5" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="14" width="4" height="6" rx="1" fill="currentColor" opacity=".2"/><rect x="16" y="14" width="4" height="6" rx="1" fill="currentColor" opacity=".2"/></svg>
+</span>Ajuda</span></h1></div>
       <details class="card"><summary>Como instalo como App?</summary><div>Na página inicial, clica em <b>Instalar App</b> ou usa o menu do navegador → <b>Adicionar ao ecrã inicial</b>.</div></details>
       <details class="card"><summary>Posso usar offline?</summary><div>Sim, com PWA e cache. Sons gerados funcionam sem internet.</div></details>
       <details class="card"><summary>O que muda no Premium?</summary><div>Desbloqueias todos os modos, favoritos/presets ilimitados e packs offline.</div></details>
-      <p class="muted">Precisas de ajuda? Escreve para <a href="mailto:support@sonari.app">support@sonari.app</a>.</p>
+      <p class="muted">Precisas de ajuda? Escreve para <a href="mailto:support@sonari.app">support@sonari.app</a>.</span></p>
     </div>
   </main>
 
@@ -60,6 +67,25 @@
     </div>
   </footer>
   <script src="js/app.js"></script>
+
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const QS = (s,el=document)=>el.querySelector(s);
+  const saved = localStorage.getItem('theme');
+  function apply(t){ root.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+  if(saved){ apply(saved); } else { apply('dark'); }
+  window.__toggleTheme = function(){
+    const current = root.getAttribute('data-theme');
+    apply(current === 'light' ? 'dark' : 'light');
+  };
+  // reveal on load
+  window.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay = (i*0.06)+'s'; el.classList.add('d2'); });
+  });
+})();
+</script>
 
 </body>
 </html>

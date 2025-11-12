@@ -33,13 +33,20 @@
         <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
       </nav>
     </div>
-  </header>
+  
+<button class="toggle-theme" onclick="window.__toggleTheme()" aria-label="Alternar tema">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>\1<span class="reveal d3"></svg>
+  <span>Tema</span>
+</button>
+</header>
 
   <main class="section">
     <div class="container">
-      <div class="page-head"><h1>Sobre</h1></div>
+      <div class="page-head">\1<span class="icon" aria-hidden="true" style="display:inline-block;width:1.25em;height:1.25em;margin-right:.35em;vertical-align:-.15em">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 10v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="7.5" r="1.2" fill="currentColor"/></svg>
+</span>Sobre</span></h1></div>
       <div class="grid two">
-        <div class="card"><h3>Missão</h3><p>Som inteligente para foco, relax e sono — com privacidade em primeiro lugar.</p></div>
+        <div class="card"><h3>Missão</h3><p>Som inteligente para foco, relax e sono — com privacidade em primeiro lugar.</span></p></div>
         <div class="card"><h3>Como funciona</h3><p>Camadas geradas e mixer para personalização. Menos habituação, mais flow.</p></div>
         <div class="card"><h3>Feito na Europa</h3><p>Infra leve, sem tracking invasivo.</p></div>
         <div class="card"><h3>Contacto</h3><p><a href="mailto:support@sonari.app">support@sonari.app</a></p></div>
@@ -62,6 +69,25 @@
     </div>
   </footer>
   <script src="js/app.js"></script>
+
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const QS = (s,el=document)=>el.querySelector(s);
+  const saved = localStorage.getItem('theme');
+  function apply(t){ root.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+  if(saved){ apply(saved); } else { apply('dark'); }
+  window.__toggleTheme = function(){
+    const current = root.getAttribute('data-theme');
+    apply(current === 'light' ? 'dark' : 'light');
+  };
+  // reveal on load
+  window.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay = (i*0.06)+'s'; el.classList.add('d2'); });
+  });
+})();
+</script>
 
 </body>
 </html>

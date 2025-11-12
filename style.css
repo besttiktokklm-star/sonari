@@ -99,3 +99,104 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   h1{font-size:40px}
   .lib{grid-template-columns:repeat(2,1fr)}
 }
+
+
+
+/* === Sonari Calm Palette Override (v2.1) === */
+:root{
+  --brand: #8ba6ff;       /* indigo-300/400 */
+  --brand2: #a78bfa;      /* violet-400/500 */
+  --bg: #0b1020;          /* deep night */
+  --bg2: #0e152b;
+  --card: #121a34;
+  --text: #e7ecff;
+  --line: rgba(255,255,255,0.08);
+}
+[data-theme="system"], [data-theme="sys"], [data-theme="dark"]{
+  color-scheme: dark;
+  --brand: #8ba6ff;
+  --brand2: #a78bfa;
+  --bg: #0b1020;
+  --bg2: #0e152b;
+  --card: #121a34;
+  --text: #e7ecff;
+  --line: rgba(255,255,255,0.08);
+}
+
+
+
+/* Gradient border utility */
+.gradient-border{
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, var(--brand), var(--brand2)) border-box;
+  border-radius: 16px;
+}
+
+/* Hero backdrop blobs */
+.hero{ position: relative; overflow: hidden; }
+.hero .bg-blur{
+  position: absolute; inset: auto;
+  filter: blur(40px);
+  opacity: .55;
+  pointer-events: none;
+}
+.hero .blob-a{
+  width: 60vmin; height: 60vmin; top: -10vmin; left: -8vmin;
+  background: radial-gradient(50% 50% at 50% 50%, color-mix(in oklab, var(--brand) 55%, transparent), transparent 70%);
+  border-radius: 50%;
+}
+.hero .blob-b{
+  width: 70vmin; height: 70vmin; right: -12vmin; top: 10vmin;
+  background: radial-gradient(50% 50% at 50% 50%, color-mix(in oklab, var(--brand2) 55%, transparent), transparent 70%);
+  border-radius: 50%;
+}
+
+/* Buttons: subtle chevron and hover glow */
+.btn.primary::after, .btn.lg::after{
+  content: "›";
+  display: inline-block;
+  transform: translateX(4px);
+  transition: transform .2s ease, opacity .2s ease;
+  opacity: .9;
+  margin-left: .25rem;
+}
+.btn:hover::after{ transform: translateX(8px); opacity: 1; }
+
+/* Cards default to gradient-border */
+.card{ border-radius: 16px; }
+.card.gradient{ background: linear-gradient(180deg, color-mix(in oklab, var(--card) 90%, transparent), color-mix(in oklab, var(--card) 75%, transparent)); }
+
+
+
+/* === v2.3 Enhancements === */
+/* Toggle button with icon */
+.toggle-theme{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.5rem .85rem; border-radius:12px; border:1px solid var(--line);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+  cursor:pointer; transition: transform .15s ease, background .25s ease, border-color .25s ease;
+}
+.toggle-theme:hover{ transform: translateY(-1px); border-color: color-mix(in oklab, var(--brand) 30%, var(--line)); }
+.toggle-theme svg{ width:18px; height:18px; display:block; }
+
+/* Micro animations */
+@keyframes fadeUp { from{ opacity:0; transform: translateY(10px) } to{ opacity:1; transform:none } }
+.reveal{ opacity:0; animation: fadeUp .6s ease forwards; }
+.reveal.d2{ animation-delay:.12s } .reveal.d3{ animation-delay:.24s } .reveal.d4{ animation-delay:.36s }
+
+/* Bigger hero headline + spacing */
+.hero h1{ font-size: clamp(40px, 7vw, 72px); line-height:1.02; letter-spacing:-0.015em }
+.hero .lead{ font-size: clamp(16px, 2.2vw, 20px); color: color-mix(in oklab, var(--text) 78%, transparent) }
+.hero .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem }
+.btn.secondary{ background: transparent; border:1px solid var(--line) }
+.btn.secondary:hover{ background: color-mix(in oklab, var(--card) 92%, transparent) }
+
+/* Conversion sections */
+.pricing { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+.price-card{ padding:1.2rem; border-radius:16px; }
+.price{ font-size:32px; font-weight:800; }
+.kicker{ text-transform:uppercase; letter-spacing:.08em; font-size:12px; opacity:.8 }
+.testimonials{ display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+.quote{ padding:1rem; border:1px solid var(--line); border-radius:14px; background: color-mix(in oklab, var(--card) 90%, transparent) }

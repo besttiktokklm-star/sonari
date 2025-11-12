@@ -33,18 +33,26 @@
         <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
       </nav>
     </div>
-  </header>
+  
+<button class="toggle-theme" onclick="window.__toggleTheme()" aria-label="Alternar tema">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>\1<span class="reveal d3"></svg>
+  <span>Tema</span>
+</button>
+</header>
 
   <main>
     <section class="hero center">
       <div class="bg-blur blob-a"></div>
       <div class="bg-blur blob-b"></div>
       <div class="container hero-inner">
-        <p class="kicker">Áudio inteligente • Feito na Europa</p>
-        <h1>Instala o <span class="grad">Sonari</span></h1>
+        <p class="kicker">Áudio inteligente • Feito na Europa</span></p>
+        \1<span class="icon" aria-hidden="true" style="display:inline-block;width:1.25em;height:1.25em;margin-right:.35em;vertical-align:-.15em">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M3 12a9 9 0 0 0 14.7 6.9A9 9 0 1 1 20 7.3 9 9 0 0 0 3 12Z" stroke="currentColor" stroke-width="1.5" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="currentColor" stop-opacity=".25"/><stop offset="1" stop-color="currentColor" stop-opacity=".05"/></linearGradient></defs></svg>
+</span>Instala o <span class="grad">Sonari</span></span></h1>
         <p class="lead">Enquanto a app chega às lojas, instala a versão <b>PWA</b> e experimenta <b>3 faixas Free</b> de relaxamento. Desbloqueia tudo com <b>Premium (€5/mês)</b>.</p>
         <div class="cta">
-          <a class="btn lg" id="installBtn" href="#">Instalar App</a>
+          <a class="btn lg primary" id="installBtn" href="#">Instalar App</a>
+        <a class="btn secondary" href="premium.html">Ver Premium</a>
           <a class="btn ghost" href="listen.html">Ouvir agora</a>
           <a class="btn ghost" href="premium.html">Ver Premium</a>
         </div>
@@ -75,6 +83,25 @@
     </div>
   </footer>
   <script src="js/app.js"></script>
+
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const QS = (s,el=document)=>el.querySelector(s);
+  const saved = localStorage.getItem('theme');
+  function apply(t){ root.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+  if(saved){ apply(saved); } else { apply('dark'); }
+  window.__toggleTheme = function(){
+    const current = root.getAttribute('data-theme');
+    apply(current === 'light' ? 'dark' : 'light');
+  };
+  // reveal on load
+  window.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay = (i*0.06)+'s'; el.classList.add('d2'); });
+  });
+})();
+</script>
 
 </body>
 </html>

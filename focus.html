@@ -33,11 +33,18 @@
         <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
       </nav>
     </div>
-  </header>
+  
+<button class="toggle-theme" onclick="window.__toggleTheme()" aria-label="Alternar tema">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>\1<span class="reveal d3"></svg>
+  <span>Tema</span>
+</button>
+</header>
 
   <main class="section">
     <div class="container">
-      <div class="page-head"><h1>Foco</h1><p class="lead">Modos prontos (Pomodoro, Leitura) e métricas leves.</p></div>
+      <div class="page-head">\1<span class="icon" aria-hidden="true" style="display:inline-block;width:1.25em;height:1.25em;margin-right:.35em;vertical-align:-.15em">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+</span>Foco</span></h1><p class="lead">Modos prontos (Pomodoro, Leitura) e métricas leves.</span></p></div>
       <div class="grid features">
         <article class="card"><h3>Flow sustentado</h3><p>Micro-variações evitam fadiga de playlist.</p></article>
         <article class="card"><h3>Pomodoro</h3><p>15/25/45/60 min + lembretes suaves.</p></article>
@@ -45,7 +52,7 @@
         <article class="card"><h3>Sem distrações</h3><p>UI minimal para estudar/trabalhar.</p></article>
       </div>
       <div class="cta top-gap">
-        <a class="btn" href="premium.html">Desbloquear no Premium</a>
+        <a class="btn primary" href="premium.html">Desbloquear no Premium</a>
         <a class="btn ghost" href="listen.html">Ouvir agora</a>
       </div>
     </div>
@@ -66,6 +73,25 @@
     </div>
   </footer>
   <script src="js/app.js"></script>
+
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const QS = (s,el=document)=>el.querySelector(s);
+  const saved = localStorage.getItem('theme');
+  function apply(t){ root.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+  if(saved){ apply(saved); } else { apply('dark'); }
+  window.__toggleTheme = function(){
+    const current = root.getAttribute('data-theme');
+    apply(current === 'light' ? 'dark' : 'light');
+  };
+  // reveal on load
+  window.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay = (i*0.06)+'s'; el.classList.add('d2'); });
+  });
+})();
+</script>
 
 </body>
 </html>
