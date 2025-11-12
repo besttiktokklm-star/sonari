@@ -1,107 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt" data-theme="system">
+<html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <title>Sonari — Instalar App</title>
-  <meta name="description" content="Instala o Sonari (PWA) e começa a ouvir música gerada para foco, relax e sono.">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0b" />
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonari — Som Inteligente</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="nav glass">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html" aria-label="Sonari home">
-        <img src="logo.svg" class="logo" width="20" height="20" alt="">
-        <span>Sonari</span>
-      </a>
-      <nav class="nav-links" aria-label="Secções">
-        <a href="listen.html">Ouvir</a>
-        <a href="premium.html">Premium</a>
-        <a href="sleep.html">Sono</a>
-        <a href="focus.html">Foco</a>
-        <a href="about.html">Sobre</a>
-        <a href="support.html">Ajuda</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button>
-      </nav>
-    </div>
-  
-<button class="toggle-theme" onclick="window.__toggleTheme()" aria-label="Alternar tema">
-  <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>\1<span class="reveal d3"></svg>
-  <span>Tema</span>
-</button>
+<header class="nav">
+  <div class="container">
+    <h1 class="brand">🎧 Sonari</h1>
+    <nav>
+      <a href="listen.html">Ouvir</a>
+      <a href="plans.html">Planos</a>
+      <a href="stories.html">Stories</a>
+    </nav>
+  </div>
 </header>
 
-  <main>
-    <section class="hero center">
-      <div class="bg-blur blob-a"></div>
-      <div class="bg-blur blob-b"></div>
-      <div class="container hero-inner">
-        <p class="kicker">Áudio inteligente • Feito na Europa</span></p>
-        \1<span class="icon" aria-hidden="true" style="display:inline-block;width:1.25em;height:1.25em;margin-right:.35em;vertical-align:-.15em">
-<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M3 12a9 9 0 0 0 14.7 6.9A9 9 0 1 1 20 7.3 9 9 0 0 0 3 12Z" stroke="currentColor" stroke-width="1.5" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="currentColor" stop-opacity=".25"/><stop offset="1" stop-color="currentColor" stop-opacity=".05"/></linearGradient></defs></svg>
-</span>Instala o <span class="grad">Sonari</span></span></h1>
-        <p class="lead">Enquanto a app chega às lojas, instala a versão <b>PWA</b> e experimenta <b>3 faixas Free</b> de relaxamento. Desbloqueia tudo com <b>Premium (€5/mês)</b>.</p>
-        <div class="cta">
-          <a class="btn lg primary" id="installBtn" href="#">Instalar App</a>
-        <a class="btn secondary" href="premium.html">Ver Premium</a>
-          <a class="btn ghost" href="listen.html">Ouvir agora</a>
-          <a class="btn ghost" href="premium.html">Ver Premium</a>
-        </div>
-        <div class="card how-install">
-          <h3>Como instalar</h3>
-          <ol class="steps">
-            <li>Abrir no telemóvel.</li>
-            <li>Menu/Partilhar → <b>Adicionar ao ecrã inicial</b>.</li>
-            <li>Abrir o ícone Sonari (funciona offline/background).</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container foot-grid">
-      <div class="brandline">
-        <img src="logo.svg" width="16" height="16" class="logo" alt="">
-        <strong>Sonari</strong>
-        <p>© 2025 Sonari</p>
-      </div>
-      <nav class="foot-links">
-        <a href="privacy.html">Privacidade</a>
-        <a href="terms.html">Termos</a>
-        <a href="press.html">Press</a>
-      </nav>
+<section class="hero">
+  <div class="container center">
+    <h2>Som Inteligente para Relaxar e Focar</h2>
+    <p>Experiência sonora gerada em tempo real para foco, relax e sono.</p>
+    <div class="cta">
+      <a class="btn" href="listen.html">Ouvir Agora</a>
+      <a class="btn ghost" href="plans.html">Planos Premium</a>
     </div>
-  </footer>
-  <script src="js/app.js"></script>
+  </div>
+</section>
 
+<footer class="footer"><p>© 2025 Sonari</p></footer>
 
-<script>
-(function(){
-  const root = document.documentElement;
-  const QS = (s,el=document)=>el.querySelector(s);
-  const saved = localStorage.getItem('theme');
-  function apply(t){ root.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
-  if(saved){ apply(saved); } else { apply('dark'); }
-  window.__toggleTheme = function(){
-    const current = root.getAttribute('data-theme');
-    apply(current === 'light' ? 'dark' : 'light');
-  };
-  // reveal on load
-  window.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.animationDelay = (i*0.06)+'s'; el.classList.add('d2'); });
-  });
-})();
-</script>
+<div id="cookieBanner" class="cookie-banner">
+  <p>Usamos cookies técnicos e anónimos. 
+    <button id="acceptCookies" class="btn sm">Aceitar</button>
+  </p>
+</div>
 
+<script src="js/app.js"></script>
 </body>
 </html>

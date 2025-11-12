@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planos — Sonari</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="container"><a href="index.html" class="brand">🎧 Sonari</a></div></header>
+
+<main class="container section">
+<h1>Escolhe o teu Plano</h1>
+<div class="grid two">
+  <div class="card">
+    <h2>Free</h2>
+    <ul><li>3 faixas Relax</li><li>Funciona offline</li></ul>
+    <p class="price">€0/mês</p>
+  </div>
+
+  <div class="card premium">
+    <h2>Premium</h2>
+    <ul>
+      <li>Todos os modos (Relax+, Foco, Sono)</li>
+      <li>Presets ilimitados</li>
+      <li>Packs offline</li>
+    </ul>
+    <p class="price">€5/mês ou €50/ano</p>
+    <button id="payBtn" class="btn lg">Pagar com cartão</button>
+  </div>
+</div>
+
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <details><summary>Posso cancelar?</summary><p>Sim, a qualquer momento.</p></details>
+  <details><summary>É seguro?</summary><p>Usamos SonariPay demo, sem guardar dados.</p></details>
+</section>
+</main>
+
+<div id="checkoutModal" class="modal hidden">
+  <div class="modal-content card">
+    <h2>SonariPay</h2>
+    <label>Número do cartão</label>
+    <input type="text" placeholder="4242 4242 4242 4242">
+    <label>Validade</label>
+    <input type="text" placeholder="12/28">
+    <label>CVC</label>
+    <input type="text" placeholder="123">
+    <button id="confirmPay" class="btn">Confirmar Pagamento</button>
+    <button id="closeModal" class="btn ghost">Fechar</button>
+  </div>
+</div>
+
+<footer class="footer"><p>© 2025 Sonari</p></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
